@@ -11,29 +11,57 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
   </head>
   <body>
     <main class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <div class="text-center">
-        <h1
-          class="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl tracking-tight mb-4"
+      <div
+        class="flex flex-col md:flex-row items-center justify-center gap-8 mb-8"
+      >
+        <!-- Photo placeholder -->
+        <div
+          class="w-48 h-48 bg-gray-200 rounded-full overflow-hidden flex items-center justify-center border-2 border-indigo-600"
         >
-          Ciarán Curley
-        </h1>
-        <p class="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-          Software Engineer from Dublin, Ireland
-        </p>
-        <div class="mt-8 flex justify-center space-x-4">
-          <a
-            href="/blog"
-            class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-24 w-24 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
           >
-            Read my blog
-          </a>
-          <a
-            href="#contact"
-            class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-200"
-          >
-            Contact me
-          </a>
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+            ></path>
+          </svg>
         </div>
+
+        <!-- Name and description -->
+        <div class="text-center md:text-left">
+          <h1
+            class="text-4xl font-extrabold text-gray-900 sm:text-5xl md:text-6xl tracking-tight mb-4"
+          >
+            Ciarán Curley
+          </h1>
+          <p
+            class="text-xl text-gray-600 max-w-2xl mx-auto md:mx-0 leading-relaxed"
+          >
+            Software Engineer from Dublin, Ireland
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-8 flex justify-center space-x-4">
+        <a
+          href="/blog"
+          class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition-colors duration-200"
+        >
+          Blog
+        </a>
+        <a
+          href="#contact"
+          class="inline-flex items-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 transition-colors duration-200"
+        >
+          Contact me
+        </a>
       </div>
     </main>
     <Footer />
