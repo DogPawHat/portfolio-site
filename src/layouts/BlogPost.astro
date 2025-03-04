@@ -24,14 +24,16 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         display: block;
         margin: 0 auto;
         border-radius: 12px;
-        box-shadow: var(--box-shadow);
+        box-shadow:
+          0 4px 6px rgba(0, 0, 0, 0.5),
+          0 10px 15px rgba(0, 0, 0, 0.4);
       }
       .prose {
         width: 720px;
         max-width: calc(100% - 2em);
         margin: auto;
         padding: 1em;
-        color: rgb(var(--gray-dark));
+        color: var(--color-text-primary);
       }
       .title {
         margin-bottom: 1em;
@@ -41,18 +43,75 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
       }
       .title h1 {
         margin: 0 0 0.5em 0;
+        color: var(--color-text-primary);
       }
       .date {
         margin-bottom: 0.5em;
-        color: rgb(var(--gray));
+        color: var(--color-text-secondary);
       }
       .last-updated-on {
         font-style: italic;
       }
+      hr {
+        border-color: var(--color-border);
+      }
     </style>
   </head>
 
-  <body>
+  <body class="bg-gray-900 text-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 shadow-lg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <!-- Logo/Avatar -->
+            <div class="flex-shrink-0 flex items-center">
+              <div
+                class="w-10 h-10 bg-gray-800 rounded-full overflow-hidden flex items-center justify-center border border-indigo-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-gray-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  ></path>
+                </svg>
+              </div>
+              <span class="ml-3 text-xl font-bold text-white"
+                >Ciarán Curley</span
+              >
+            </div>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="flex items-center space-x-8">
+            <a
+              href="/"
+              class="px-3 py-2 text-sm font-medium text-gray-300 hover:text-indigo-400 border-b-2 border-transparent hover:border-indigo-500 transition-colors duration-200"
+              >Home</a
+            >
+            <a
+              href="/blog"
+              class="px-3 py-2 text-sm font-medium text-indigo-400 border-b-2 border-indigo-500 transition-colors duration-200"
+              >Blog</a
+            >
+            <a
+              href="#contact"
+              class="px-3 py-2 text-sm font-medium text-gray-300 hover:text-indigo-400 border-b-2 border-transparent hover:border-indigo-500 transition-colors duration-200"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
     <main>
       <article>
         <div class="hero-image">
@@ -74,8 +133,8 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
                 )
               }
             </div>
-            <h1>{title}</h1>
-            <hr />
+            <h1 class="text-white">{title}</h1>
+            <hr class="border-gray-700" />
           </div>
           <slot />
         </div>

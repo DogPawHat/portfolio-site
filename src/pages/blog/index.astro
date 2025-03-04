@@ -14,24 +14,83 @@ const posts = (await getCollection("blog")).sort(
   <head>
     <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
   </head>
-  <body>
-    <main>
+  <body class="bg-gray-900 text-gray-100">
+    <!-- Navigation Bar -->
+    <nav class="bg-gray-800 shadow-lg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between h-16">
+          <div class="flex items-center">
+            <!-- Logo/Avatar -->
+            <div class="flex-shrink-0 flex items-center">
+              <div
+                class="w-10 h-10 bg-gray-800 rounded-full overflow-hidden flex items-center justify-center border border-indigo-500"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 text-gray-500"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1.5"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                  ></path>
+                </svg>
+              </div>
+              <span class="ml-3 text-xl font-bold text-white"
+                >Ciarán Curley</span
+              >
+            </div>
+          </div>
+
+          <!-- Navigation Links -->
+          <div class="flex items-center space-x-8">
+            <a
+              href="/"
+              class="px-3 py-2 text-sm font-medium text-gray-300 hover:text-indigo-400 border-b-2 border-transparent hover:border-indigo-500 transition-colors duration-200"
+              >Home</a
+            >
+            <a
+              href="/blog"
+              class="px-3 py-2 text-sm font-medium text-indigo-400 border-b-2 border-indigo-500 transition-colors duration-200"
+              >Blog</a
+            >
+            <a
+              href="#contact"
+              class="px-3 py-2 text-sm font-medium text-gray-300 hover:text-indigo-400 border-b-2 border-transparent hover:border-indigo-500 transition-colors duration-200"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <h1 class="text-4xl font-bold text-white mb-8">Blog</h1>
       <section>
-        <ul>
+        <ul class="grid grid-cols-1 md:grid-cols-2 gap-8">
           {
             posts.map((post) => (
-              <li>
-                <a href={`/blog/${post.id}/`}>
+              <li class="bg-gray-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <a href={`/blog/${post.id}/`} class="block">
                   <img
                     width={720}
                     height={360}
                     src={post.data.heroImage}
                     alt=""
+                    class="w-full h-48 object-cover"
                   />
-                  <h4 class="title">{post.data.title}</h4>
-                  <p class="date">
-                    <FormattedDate date={post.data.pubDate} />
-                  </p>
+                  <div class="p-6">
+                    <h4 class="text-xl font-semibold text-white mb-2">
+                      {post.data.title}
+                    </h4>
+                    <p class="text-indigo-400 text-sm">
+                      <FormattedDate date={post.data.pubDate} />
+                    </p>
+                  </div>
                 </a>
               </li>
             ))
