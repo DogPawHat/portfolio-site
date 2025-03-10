@@ -1,18 +1,18 @@
 ---
 import BaseHead from "../components/BaseHead.astro";
 import Sidebar from "../components/Sidebar.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
 interface Props {
-  title?: string;
-  description?: string;
-  activeLink?: "home" | "blog";
+	title?: string;
+	description?: string;
+	activeLink?: "home" | "blog";
 }
 
 const {
-  title = SITE_TITLE,
-  description = SITE_DESCRIPTION,
-  activeLink = "home",
+	title = SITE_TITLE,
+	description = SITE_DESCRIPTION,
+	activeLink = "home",
 } = Astro.props;
 ---
 
