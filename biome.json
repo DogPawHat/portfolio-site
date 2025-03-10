@@ -7,7 +7,11 @@
 	},
 	"files": {
 		"ignoreUnknown": false,
-		"ignore": [".astro", "node_modules"]
+		"ignore": [
+			".astro",
+			"node_modules",
+			"pnpm-lock.yaml"
+		]
 	},
 	"formatter": {
 		"enabled": true,
@@ -29,7 +33,9 @@
 	},
 	"overrides": [
 		{
-			"include": ["*.astro"],
+			"include": [
+				"*.astro"
+			],
 			"linter": {
 				"rules": {
 					"style": {
