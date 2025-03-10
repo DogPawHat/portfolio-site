@@ -69,96 +69,21 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     </nav>
 
     <main class="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
+      <div class="text-center mb-16">
         <h1 class="text-4xl font-bold text-white mb-4">Get in Touch</h1>
         <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-          Have a question or want to work together? Fill out the form below and
-          I'll get back to you as soon as possible.
+          Feel free to reach out through any of the channels below.
         </p>
       </div>
 
-      <div class="bg-gray-800 rounded-lg shadow-xl p-8 max-w-2xl mx-auto">
-        <form class="space-y-6">
-          <div>
-            <label
-              for="name"
-              class="block text-sm font-medium text-gray-300 mb-1">Name</label
-            >
-            <input
-              type="text"
-              id="name"
-              name="name"
-              class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              placeholder="Your name"
-              required
-            />
-          </div>
-
-          <div>
-            <label
-              for="email"
-              class="block text-sm font-medium text-gray-300 mb-1">Email</label
-            >
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              placeholder="your.email@example.com"
-              required
-            />
-          </div>
-
-          <div>
-            <label
-              for="subject"
-              class="block text-sm font-medium text-gray-300 mb-1"
-              >Subject</label
-            >
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              placeholder="What is this regarding?"
-              required
-            />
-          </div>
-
-          <div>
-            <label
-              for="message"
-              class="block text-sm font-medium text-gray-300 mb-1"
-              >Message</label
-            >
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              placeholder="Your message here..."
-              required></textarea>
-          </div>
-
-          <div class="flex justify-end">
-            <button
-              type="submit"
-              class="px-6 py-3 bg-indigo-600 text-white font-medium rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200"
-            >
-              Send Message
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-md text-center">
           <div
-            class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-500/20 text-indigo-400 mb-4"
+            class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-500/20 text-indigo-400 mb-6"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
+              class="h-8 w-8"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -171,17 +96,22 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
               ></path>
             </svg>
           </div>
-          <h3 class="text-lg font-medium text-white mb-2">Email</h3>
-          <p class="text-gray-400">hello@example.com</p>
+          <h3 class="text-xl font-medium text-white mb-3">Email</h3>
+          <p class="text-gray-400 mb-4">hello@example.com</p>
+          <a
+            href="mailto:hello@example.com"
+            class="text-indigo-400 hover:text-indigo-300 font-medium"
+            >Send an email</a
+          >
         </div>
 
-        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-md text-center">
           <div
-            class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-500/20 text-indigo-400 mb-4"
+            class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-500/20 text-indigo-400 mb-6"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
+              class="h-8 w-8"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -199,17 +129,17 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
                 d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
             </svg>
           </div>
-          <h3 class="text-lg font-medium text-white mb-2">Location</h3>
+          <h3 class="text-xl font-medium text-white mb-3">Location</h3>
           <p class="text-gray-400">Dublin, Ireland</p>
         </div>
 
-        <div class="bg-gray-800 p-6 rounded-lg shadow-md">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-md text-center">
           <div
-            class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-indigo-500/20 text-indigo-400 mb-4"
+            class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-indigo-500/20 text-indigo-400 mb-6"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
+              class="h-8 w-8"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -221,12 +151,15 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
                 d="M13 10V3L4 14h7v7l9-11h-7z"></path>
             </svg>
           </div>
-          <h3 class="text-lg font-medium text-white mb-2">Social</h3>
-          <div class="flex justify-center space-x-4">
-            <a href="#" class="text-gray-400 hover:text-indigo-400">
+          <h3 class="text-xl font-medium text-white mb-3">Social</h3>
+          <div class="flex justify-center space-x-5 mt-4">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-indigo-400 transition-colors"
+            >
               <span class="sr-only">Twitter</span>
               <svg
-                class="h-6 w-6"
+                class="h-7 w-7"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -236,10 +169,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
                 ></path>
               </svg>
             </a>
-            <a href="#" class="text-gray-400 hover:text-indigo-400">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-indigo-400 transition-colors"
+            >
               <span class="sr-only">GitHub</span>
               <svg
-                class="h-6 w-6"
+                class="h-7 w-7"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -250,10 +186,13 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
                   clip-rule="evenodd"></path>
               </svg>
             </a>
-            <a href="#" class="text-gray-400 hover:text-indigo-400">
+            <a
+              href="#"
+              class="text-gray-400 hover:text-indigo-400 transition-colors"
+            >
               <span class="sr-only">LinkedIn</span>
               <svg
-                class="h-6 w-6"
+                class="h-7 w-7"
                 fill="currentColor"
                 viewBox="0 0 24 24"
                 aria-hidden="true"
@@ -270,4 +209,3 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     </main>
   </body>
 </html>
-
