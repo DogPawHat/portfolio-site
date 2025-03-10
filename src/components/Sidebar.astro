@@ -28,7 +28,6 @@ const { activeLink = "home" } = Astro.props;
     <!-- Name and description -->
     <div class="text-center md:text-left mb-8">
       <h1 class="text-2xl font-bold text-white mb-2">Ciarán Curley</h1>
-      <p class="text-gray-400">Software Engineer from Dublin, Ireland</p>
     </div>
 
     <!-- Navigation Links -->
@@ -37,7 +36,7 @@ const { activeLink = "home" } = Astro.props;
         <li>
           <a
             href="/"
-            class={`flex items-center px-4 py-3 rounded-md transition-colors duration-200 ${activeLink === "home" ? "text-white bg-indigo-600" : "text-gray-300 hover:bg-gray-700"}`}
+            class={`flex items-center py-3 transition-colors duration-200 ${activeLink === "home" ? "text-white border-b-2 border-indigo-500" : "text-gray-300 hover:text-white border-b-2 border-transparent"}`}
           >
             <House className="w-5 h-5 mr-3" />
             Home
@@ -46,7 +45,7 @@ const { activeLink = "home" } = Astro.props;
         <li>
           <a
             href="/blog"
-            class={`flex items-center px-4 py-3 rounded-md transition-colors duration-200 ${activeLink === "blog" ? "text-white bg-indigo-600" : "text-gray-300 hover:bg-gray-700"}`}
+            class={`flex items-center py-3 transition-colors duration-200 ${activeLink === "blog" ? "text-white border-b-2 border-indigo-500" : "text-gray-300 hover:text-white border-b-2 border-transparent"}`}
           >
             <NewsPaper className="w-5 h-5 mr-3" />
             Blog
