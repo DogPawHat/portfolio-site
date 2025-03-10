@@ -5,7 +5,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 
 const posts = (await getCollection("blog")).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 ---
 

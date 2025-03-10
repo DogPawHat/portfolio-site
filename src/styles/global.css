@@ -4,76 +4,76 @@
 
 /* Custom theme configuration */
 @theme {
-	/* Colors for dark theme */
-	--color-bg-primary: #111827; /* gray-900 */
-	--color-bg-secondary: #1f2937; /* gray-800 */
-	--color-text-primary: #f9fafb; /* gray-50 */
-	--color-text-secondary: #9ca3af; /* gray-400 */
-	--color-accent: #818cf8; /* indigo-400 */
-	--color-accent-dark: #6366f1; /* indigo-500 */
-	--color-border: #4b5563; /* gray-600 */
+  /* Colors for dark theme */
+  --color-bg-primary: #111827; /* gray-900 */
+  --color-bg-secondary: #1f2937; /* gray-800 */
+  --color-text-primary: #f9fafb; /* gray-50 */
+  --color-text-secondary: #9ca3af; /* gray-400 */
+  --color-accent: #818cf8; /* indigo-400 */
+  --color-accent-dark: #6366f1; /* indigo-500 */
+  --color-border: #4b5563; /* gray-600 */
 
-	/* Font Family */
-	--font-atkinson: "Atkinson", sans-serif;
+  /* Font Family */
+  --font-atkinson: "Atkinson", sans-serif;
 }
 
 /* Custom font definitions */
 @font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-regular.woff") format("woff");
-	font-weight: 400;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Atkinson";
+  src: url("/fonts/atkinson-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 @font-face {
-	font-family: "Atkinson";
-	src: url("/fonts/atkinson-bold.woff") format("woff");
-	font-weight: 700;
-	font-style: normal;
-	font-display: swap;
+  font-family: "Atkinson";
+  src: url("/fonts/atkinson-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* Base styles for dark theme */
 @layer base {
-	body {
-		background-color: var(--color-bg-primary);
-		color: var(--color-text-primary);
-		font-family: var(--font-atkinson);
-	}
+  body {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-family: var(--font-atkinson);
+  }
 
-	a {
-		color: var(--color-accent);
-	}
+  a {
+    color: var(--color-accent);
+  }
 
-	a:hover {
-		color: var(--color-accent-dark);
-	}
+  a:hover {
+    color: var(--color-accent-dark);
+  }
 
-	h1,
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		color: var(--color-text-primary);
-	}
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-text-primary);
+  }
 
-	/* Dark mode scrollbar */
-	::-webkit-scrollbar {
-		width: 14px;
-	}
+  /* Dark mode scrollbar */
+  ::-webkit-scrollbar {
+    width: 14px;
+  }
 
-	::-webkit-scrollbar-track {
-		background: var(--color-bg-secondary);
-	}
+  ::-webkit-scrollbar-track {
+    background: var(--color-bg-secondary);
+  }
 
-	::-webkit-scrollbar-thumb {
-		background: var(--color-border);
-		border-radius: 10px;
-		border: 3px solid var(--color-bg-secondary);
-	}
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-border);
+    border-radius: 10px;
+    border: 3px solid var(--color-bg-secondary);
+  }
 
-	::-webkit-scrollbar-thumb:hover {
-		background: var(--color-accent-dark);
-	}
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-accent-dark);
+  }
 }
