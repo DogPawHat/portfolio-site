@@ -62,48 +62,61 @@ const { activeLink = "home" } = Astro.props;
       </h2>
 
       <!-- Email -->
-      <div
-        class="flex items-center mb-4 text-gray-400 hover:text-indigo-400 transition-colors"
-      >
-        <Mail className="w-5 h-5 mr-3" />
-        <a href="mailto:hello@example.com" class="truncate">hello@example.com</a
+      <div class="flex items-center mb-4 group transition-colors">
+        <a
+          href="mailto:ciaran.curley.11.11@gmail.com"
+          class="flex items-center truncate group-hover:text-indigo-400"
         >
+          <Mail
+            className="w-5 h-5 mr-3 text-gray-400 group-hover:text-indigo-400"
+          />
+          ciaran.curley.11.11@gmail.com
+        </a>
+      </div>
+
+      <!-- Bluesky -->
+      <div class="flex items-center mb-4 group transition-colors">
+        <a
+          href="https://bsky.app/profile/dogpwawhat"
+          class="flex items-center truncate group-hover:text-indigo-400"
+        >
+          <Bluesky
+            className="w-5 h-5 mr-3 text-gray-400 group-hover:text-indigo-400"
+          />
+          bsky.app/profile/dogpwawhat
+        </a>
+      </div>
+
+      <!-- GitHub -->
+      <div class="flex items-center mb-4 group transition-colors">
+        <a
+          href="https://github.com/dogpawhat"
+          class="flex items-center truncate group-hover:text-indigo-400"
+        >
+          <Github
+            className="w-5 h-5 mr-3 text-gray-400 group-hover:text-indigo-400"
+          />
+          github.com/dogpawhat
+        </a>
+      </div>
+
+      <!-- LinkedIn -->
+      <div class="flex items-center mb-4 group transition-colors">
+        <a
+          href="https://www.linkedin.com/in/dogpawhat/"
+          class="flex items-center truncate group-hover:text-indigo-400"
+        >
+          <Linkedin
+            className="w-5 h-5 mr-3 text-gray-400 group-hover:text-indigo-400"
+          />
+          linkedin.com/in/dogpawhat/
+        </a>
       </div>
 
       <!-- Location -->
       <div class="flex items-center mb-4 text-gray-400">
         <MapPin className="w-5 h-5 mr-3" />
         <span>Dublin, Ireland</span>
-      </div>
-    </div>
-
-    <!-- Social Links -->
-    <div class="mt-auto pt-6 w-full border-t border-gray-700">
-      <h2 class="text-lg font-medium text-white mb-4 text-center md:text-left">
-        Social
-      </h2>
-      <div class="flex justify-center md:justify-start space-x-4">
-        <a
-          href="#"
-          class="text-gray-400 hover:text-indigo-400 transition-colors"
-          aria-label="GitHub"
-        >
-          <Github className="h-6 w-6" />
-        </a>
-        <a
-          href="#"
-          class="text-gray-400 hover:text-indigo-400 transition-colors"
-          aria-label="LinkedIn"
-        >
-          <Linkedin className="h-6 w-6" />
-        </a>
-        <a
-          href="#"
-          class="text-gray-400 hover:text-indigo-400 transition-colors"
-          aria-label="Bluesky"
-        >
-          <Bluesky className="h-6 w-6" />
-        </a>
       </div>
     </div>
   </div>
