@@ -3,6 +3,8 @@ interface Props {
   activeLink?: "home" | "blog";
 }
 
+import UserRound from "../icons/UserRound.astro";
+
 const { activeLink = "home" } = Astro.props;
 ---
 
@@ -14,20 +16,7 @@ const { activeLink = "home" } = Astro.props;
     <div
       class="w-32 h-32 bg-gray-700 rounded-full overflow-hidden flex items-center justify-center border-2 border-indigo-500 mb-6"
     >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-16 w-16 text-gray-500"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="1.5"
-          d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-        ></path>
-      </svg>
+      <UserRound className="w-16 h-16 text-grey-500" />
     </div>
 
     <!-- Name and description -->
