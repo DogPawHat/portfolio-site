@@ -1,0 +1,6 @@
+- [x] better sidebar description/bio
+- [ ] links improvement
+- [ ] bio on home page
+- [ ] skills list
+- [ ] list projects/brag sheet in route
+- [ ] cv download
