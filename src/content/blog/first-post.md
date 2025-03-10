@@ -1,6 +1,6 @@
 ---
 title: "Well here we are now"
-description: "Lorem ipsum dolor sit amet"
+description: "The start of something"
 pubDate: "Mar 04 2025"
 heroImage: "/blog-placeholder-3.jpg"
 ---
