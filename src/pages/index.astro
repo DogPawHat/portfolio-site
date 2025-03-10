@@ -13,7 +13,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
       <!-- Sidebar -->
       <aside class="w-full md:w-64 lg:w-72 bg-gray-800 md:min-h-screen">
         <div
-          class="sticky top-0 p-4 md:p-6 flex flex-col items-center md:items-start"
+          class="sticky top-0 p-4 md:p-6 flex flex-col items-center md:items-start h-full"
         >
           <!-- Photo placeholder -->
           <div
@@ -88,30 +88,64 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
                   Blog
                 </a>
               </li>
-              <li>
-                <a
-                  href="/contact"
-                  class="flex items-center px-4 py-3 text-gray-300 hover:bg-gray-700 rounded-md transition-colors duration-200"
-                >
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    class="h-5 w-5 mr-3"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                    ></path>
-                  </svg>
-                  Contact
-                </a>
-              </li>
             </ul>
           </nav>
+
+          <!-- Contact Information -->
+          <div class="w-full mt-8 pt-6 border-t border-gray-700">
+            <h2
+              class="text-lg font-medium text-white mb-4 text-center md:text-left"
+            >
+              Contact
+            </h2>
+
+            <!-- Email -->
+            <div
+              class="flex items-center mb-4 text-gray-400 hover:text-indigo-400 transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 mr-3 flex-shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                ></path>
+              </svg>
+              <a href="mailto:hello@example.com" class="truncate"
+                >hello@example.com</a
+              >
+            </div>
+
+            <!-- Location -->
+            <div class="flex items-center mb-4 text-gray-400">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 mr-3 flex-shrink-0"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              </svg>
+              <span>Dublin, Ireland</span>
+            </div>
+          </div>
 
           <!-- Social Links -->
           <div class="mt-auto pt-6 w-full">
