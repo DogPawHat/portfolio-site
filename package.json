@@ -21,8 +21,6 @@
 		"@tailwindcss/typography": "^0.5.16"
 	},
 	"pnpm": {
-		"onlyBuiltDependencies": [
-			"@biomejs/biome"
-		]
+		"onlyBuiltDependencies": ["@biomejs/biome"]
 	}
 }
