@@ -50,44 +50,80 @@ import Typescript from "../icons/tech/typescript.svg";
     Previous Commercial Projects
   </h3>
 
-  <div class="grid grid-cols-3 gap-6 my-6">
-    <div class="rounded-lg overflow-hidden shadow-lg bg-gray-800">
-      <div class="aspect-video">
-        <img
-          src="https://i8qrvymqoy.ufs.sh/f/5bi1XUVQkRmSBDfDTVwmVr9gQWkpqRUMtaXbD4yzvPYLiAeC"
-          alt="Bank of Ireland Insurance Wallet"
-          class="w-full h-full object-cover"
-        />
-      </div>
-      <div class="p-4">
-        <h4 class="text-lg font-semibold">Bank of Ireland Insurance Wallet</h4>
-      </div>
-    </div>
+  <div id="projects-carousel" class="embla">
+    <div class="embla__viewport overflow-hidden">
+      <div class="embla__container flex">
+        <div
+          class="embla__slide flex-[0_0_80%] min-w-0 rounded-lg overflow-hidden shadow-lg bg-gray-800"
+        >
+          <div class="aspect-video">
+            <img
+              src="https://i8qrvymqoy.ufs.sh/f/5bi1XUVQkRmSBDfDTVwmVr9gQWkpqRUMtaXbD4yzvPYLiAeC"
+              alt="Bank of Ireland Insurance Wallet"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-4">
+            <h4 class="text-lg font-semibold">
+              Bank of Ireland Insurance Wallet
+            </h4>
+          </div>
+        </div>
 
-    <div class="rounded-lg overflow-hidden shadow-lg bg-gray-800">
-      <div class="aspect-video">
-        <img
-          src="https://i8qrvymqoy.ufs.sh/f/5bi1XUVQkRmSBTQcUlwmVr9gQWkpqRUMtaXbD4yzvPYLiAeC"
-          alt="Evervault dashboard"
-          class="w-full h-full object-cover"
-        />
-      </div>
-      <div class="p-4">
-        <h4 class="text-lg font-semibold">Evervault Dashboard</h4>
-      </div>
-    </div>
+        <div
+          class="embla__slide flex-[0_0_100%] min-w-0 rounded-lg overflow-hidden shadow-lg bg-gray-800"
+        >
+          <div class="aspect-video">
+            <img
+              src="https://i8qrvymqoy.ufs.sh/f/5bi1XUVQkRmSBTQcUlwmVr9gQWkpqRUMtaXbD4yzvPYLiAeC"
+              alt="Evervault dashboard"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-4">
+            <h4 class="text-lg font-semibold">Evervault Dashboard</h4>
+          </div>
+        </div>
 
-    <div class="rounded-lg overflow-hidden shadow-lg bg-gray-800">
-      <div class="aspect-video">
-        <img
-          src="https://i8qrvymqoy.ufs.sh/f/5bi1XUVQkRmSBDfDTVwmVr9gQWkpqRUMtaXbD4yzvPYLiAeC"
-          alt="Web Summit live-streaming site"
-          class="w-full h-full object-cover"
-        />
+        <div
+          class="embla__slide flex-[0_0_100%] min-w-0 rounded-lg overflow-hidden shadow-lg bg-gray-800"
+        >
+          <div class="aspect-video">
+            <img
+              src="https://i8qrvymqoy.ufs.sh/f/5bi1XUVQkRmSBDfDTVwmVr9gQWkpqRUMtaXbD4yzvPYLiAeC"
+              alt="Web Summit live-streaming site"
+              class="w-full h-full object-cover"
+            />
+          </div>
+          <div class="p-4">
+            <h4 class="text-lg font-semibold">
+              Web Summit Live-Streaming Site
+            </h4>
+          </div>
+        </div>
       </div>
-      <div class="p-4">
-        <h4 class="text-lg font-semibold">Web Summit Live-Streaming Site</h4>
-      </div>
+      <button class="embla__prev">Prev</button>
+      <button class="embla__next">Next</button>
     </div>
   </div>
+  <script>
+    import EmblaCarousel from "embla-carousel";
+
+    const projectCarousel = document.getElementById("projects-carousel");
+
+    if (projectCarousel) {
+      const options = { loop: false };
+      const viewport = projectCarousel.querySelector(
+        ".embla__viewport"
+      ) as HTMLElement;
+
+      const emblaApi = EmblaCarousel(viewport, options);
+
+      const prevButton = projectCarousel.querySelector(".embla__prev");
+      const nextButton = projectCarousel.querySelector(".embla__next");
+
+      prevButton?.addEventListener("click", () => emblaApi.scrollPrev(), false);
+      nextButton?.addEventListener("click", () => emblaApi.scrollNext(), false);
+    }
+  </script>
 </SiteLayout>
