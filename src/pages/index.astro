@@ -2,12 +2,12 @@
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import SiteLayout from "../layouts/SiteLayout.astro";
 
-import Cursor from "../icons/tech/Cursor.astro";
-import Nextjs from "../icons/tech/Nextjs.astro";
-import Node from "../icons/tech/Node.astro";
-import React from "../icons/tech/React.astro";
-import Tanstack from "../icons/tech/Tanstack.astro";
-import Typescript from "../icons/tech/Typescript.astro";
+import Cursor from "../icons/tech/cursor_dark.svg";
+import Nextjs from "../icons/tech/nextjs_icon_dark.svg";
+import Node from "../icons/tech/nodejs.svg";
+import React from "../icons/tech/react_dark.svg";
+import Tanstack from "../icons/tech/tanstack.svg";
+import Typescript from "../icons/tech/typescript.svg";
 ---
 
 <SiteLayout title={SITE_TITLE} description={SITE_DESCRIPTION} activeLink="home">
@@ -20,13 +20,31 @@ import Typescript from "../icons/tech/Typescript.astro";
     </p>
     <h3>Skills</h3>
 
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 my-6">
-      <React />
-      <Nextjs />
-      <Node />
-      <Typescript />
-      <Cursor />
-      <Tanstack />
+    <div class="flex justify-between items-start gap-4 my-6">
+      <div class="flex flex-col items-center">
+        <Typescript class="w-12 h-12" />
+        <span class="text-sm text-gray-400 mt-2">TypeScript</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <React class="w-12 h-12" />
+        <span class="text-sm text-gray-400 mt-2">React</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <Tanstack class="w-12 h-12" />
+        <span class="text-sm text-gray-400 mt-2">TanStack Query</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <Nextjs class="w-12 h-12" />
+        <span class="text-sm text-gray-400 mt-2">Next.js</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <Node class="w-12 h-12" />
+        <span class="text-sm text-gray-400 mt-2">Node.js</span>
+      </div>
+      <div class="flex flex-col items-center">
+        <Cursor class="w-12 h-12" />
+        <span class="text-sm text-gray-400 mt-2">Cursor</span>
+      </div>
     </div>
 
     <h3>Recent Projects</h3>
