@@ -2,8 +2,11 @@
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import SiteLayout from "../layouts/SiteLayout.astro";
 
-import ArrowLeft from "../icons/lucide/arrow-left.svg";
-import ArrowRight from "../icons/lucide/arrow-right.svg";
+import Carousel from "../components/carousel/Carousel.astro";
+import CarouselContent from "../components/carousel/CarouselContent.astro";
+import CarouselItem from "../components/carousel/CarouselItem.astro";
+import CarouselNext from "../components/carousel/CarouselNext.astro";
+import CarouselPrevious from "../components/carousel/CarouselPrevious.astro";
 
 import Cursor from "../icons/tech/cursor_dark.svg";
 import Nextjs from "../icons/tech/nextjs_icon_dark.svg";
@@ -53,83 +56,61 @@ import Typescript from "../icons/tech/typescript.svg";
     Previous Commercial Projects
   </h3>
 
-  <div
-    id="projects-carousel"
-    class="relative w-full max-w-xs"
-    role="region"
-    aria-roledescription="carousel"
-  >
-    <div class="overflow-hidden">
-      <div class="flex -ml-4">
-        <div
-          role="group"
-          aria-roledescription="slide"
-          class="min-w-0 shrink-0 grow-0 basis-full pl-4 rounded-lg overflow-hidden shadow-lg bg-gray-800"
-        >
-          <div class="aspect-video">
-            <img
-              src="https://i8qrvymqoy.ufs.sh/f/5bi1XUVQkRmSBDfDTVwmVr9gQWkpqRUMtaXbD4yzvPYLiAeC"
-              alt="Bank of Ireland Insurance Wallet"
-              class="w-full h-full object-cover"
-            />
+  <div class="w-full">
+    <Carousel id="projects-carousel" opts={{ loop: true }}>
+      <CarouselContent>
+        <CarouselItem>
+          <div class="rounded-lg overflow-hidden shadow-lg bg-gray-800">
+            <div class="aspect-video">
+              <img
+                src="https://i8qrvymqoy.ufs.sh/f/5bi1XUVQkRmSBDfDTVwmVr9gQWkpqRUMtaXbD4yzvPYLiAeC"
+                alt="Bank of Ireland Insurance Wallet"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-4">
+              <h4 class="text-lg font-semibold">
+                Bank of Ireland Insurance Wallet
+              </h4>
+            </div>
           </div>
-          <div class="p-4">
-            <h4 class="text-lg font-semibold">
-              Bank of Ireland Insurance Wallet
-            </h4>
-          </div>
-        </div>
+        </CarouselItem>
 
-        <div
-          role="group"
-          aria-roledescription="slide"
-          class="min-w-0 shrink-0 grow-0 basis-full pl-4 rounded-lg overflow-hidden shadow-lg bg-gray-800"
-        >
-          <div class="aspect-video">
-            <img
-              src="https://i8qrvymqoy.ufs.sh/f/5bi1XUVQkRmSBTQcUlwmVr9gQWkpqRUMtaXbD4yzvPYLiAeC"
-              alt="Evervault dashboard"
-              class="w-full h-full object-cover"
-            />
+        <CarouselItem>
+          <div class="rounded-lg overflow-hidden shadow-lg bg-gray-800">
+            <div class="aspect-video">
+              <img
+                src="https://i8qrvymqoy.ufs.sh/f/5bi1XUVQkRmSBTQcUlwmVr9gQWkpqRUMtaXbD4yzvPYLiAeC"
+                alt="Evervault dashboard"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-4">
+              <h4 class="text-lg font-semibold">Evervault Dashboard</h4>
+            </div>
           </div>
-          <div class="p-4">
-            <h4 class="text-lg font-semibold">Evervault Dashboard</h4>
-          </div>
-        </div>
+        </CarouselItem>
 
-        <div
-          role="group"
-          aria-roledescription="slide"
-          class="min-w-0 shrink-0 grow-0 basis-full pl-4 rounded-lg overflow-hidden shadow-lg bg-gray-800"
-        >
-          <div class="aspect-video">
-            <img
-              src="https://i8qrvymqoy.ufs.sh/f/5bi1XUVQkRmSBDfDTVwmVr9gQWkpqRUMtaXbD4yzvPYLiAeC"
-              alt="Web Summit live-streaming site"
-              class="w-full h-full object-cover"
-            />
+        <CarouselItem>
+          <div class="rounded-lg overflow-hidden shadow-lg bg-gray-800">
+            <div class="aspect-video">
+              <img
+                src="https://i8qrvymqoy.ufs.sh/f/5bi1XUVQkRmSBDfDTVwmVr9gQWkpqRUMtaXbD4yzvPYLiAeC"
+                alt="Web Summit live-streaming site"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="p-4">
+              <h4 class="text-lg font-semibold">
+                Web Summit Live-Streaming Site
+              </h4>
+            </div>
           </div>
-          <div class="p-4">
-            <h4 class="text-lg font-semibold">
-              Web Summit Live-Streaming Site
-            </h4>
-          </div>
-        </div>
-      </div>
-    </div>
+        </CarouselItem>
+      </CarouselContent>
 
-    <button
-      class="absolute h-8 w-8 rounded-full -left-12 top-1/2 -translate-y-1/2 bg-white text-gray-900 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-800"
-    >
-      <ArrowLeft class="h-4 w-4" />
-      <span class="sr-only">Previous slide</span>
-    </button>
-
-    <button
-      class="absolute h-8 w-8 rounded-full -right-12 top-1/2 -translate-y-1/2 bg-white text-gray-900 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-800"
-    >
-      <ArrowRight class="h-4 w-4" />
-      <span class="sr-only">Next slide</span>
-    </button>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
   </div>
 </SiteLayout>

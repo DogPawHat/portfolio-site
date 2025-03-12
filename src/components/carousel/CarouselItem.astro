@@ -1,0 +1,22 @@
+---
+interface Props {
+  class?: string;
+  orientation?: "horizontal" | "vertical";
+}
+
+const { class: className = "", orientation = "horizontal" } = Astro.props;
+---
+
+<div
+  data-embla-carousel-slide
+  role="group"
+  aria-roledescription="slide"
+  class:list={[
+    "min-w-0 shrink-0 grow-0 basis-full",
+    orientation === "horizontal" ? "pl-4" : "pt-4",
+    className,
+  ]}
+>
+  <slot />
+</div>
+

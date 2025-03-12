@@ -1,0 +1,99 @@
+---
+interface Props {
+  id?: string;
+  orientation?: "horizontal" | "vertical";
+  opts?: Record<string, any>;
+  class?: string;
+}
+
+const {
+  id,
+  orientation = "horizontal",
+  opts = {},
+  class: className = "",
+} = Astro.props;
+
+// Merge options with orientation
+const emblaOptions = {
+  ...opts,
+  axis: orientation === "horizontal" ? "x" : "y",
+};
+
+// Convert options to JSON string for client-side script
+const optionsJson = JSON.stringify(emblaOptions);
+---
+
+<div
+  id={id}
+  class:list={["relative", className]}
+  data-embla-carousel="true"
+  data-embla-options={optionsJson}
+  data-orientation={orientation}
+  role="region"
+  aria-roledescription="carousel"
+>
+  <slot />
+</div>
+
+<script>
+  import EmblaCarousel from "embla-carousel";
+
+  // Initialize all carousels on the page
+  document.addEventListener("DOMContentLoaded", () => {
+    const carousels = document.querySelectorAll("[data-embla-carousel]");
+
+    carousels.forEach((carousel) => {
+      const viewport = carousel.querySelector("[data-embla-viewport]");
+      if (!viewport) return;
+
+      // Get options from data attribute
+      const optionsString = carousel.getAttribute("data-embla-options") || "{}";
+      const options = JSON.parse(optionsString);
+
+      // Initialize Embla
+      const emblaApi = EmblaCarousel(viewport as HTMLElement, options);
+
+      // Set up buttons
+      const prevButton = carousel.querySelector("[data-embla-prev]");
+      const nextButton = carousel.querySelector("[data-embla-next]");
+
+      const updateButtonStates = () => {
+        if (prevButton) {
+          prevButton.classList.toggle("opacity-50", !emblaApi.canScrollPrev());
+          (prevButton as HTMLButtonElement).disabled =
+            !emblaApi.canScrollPrev();
+        }
+        if (nextButton) {
+          nextButton.classList.toggle("opacity-50", !emblaApi.canScrollNext());
+          (nextButton as HTMLButtonElement).disabled =
+            !emblaApi.canScrollNext();
+        }
+      };
+
+      // Add event listeners
+      if (prevButton) {
+        prevButton.addEventListener("click", () => emblaApi.scrollPrev());
+      }
+      if (nextButton) {
+        nextButton.addEventListener("click", () => emblaApi.scrollNext());
+      }
+
+      // Handle keyboard navigation
+      carousel.addEventListener("keydown", (event) => {
+        const keyEvent = event as KeyboardEvent;
+        if (keyEvent.key === "ArrowLeft") {
+          event.preventDefault();
+          emblaApi.scrollPrev();
+        } else if (keyEvent.key === "ArrowRight") {
+          event.preventDefault();
+          emblaApi.scrollNext();
+        }
+      });
+
+      // Update button states on select and init
+      emblaApi.on("select", updateButtonStates);
+      emblaApi.on("init", updateButtonStates);
+      updateButtonStates();
+    });
+  });
+</script>

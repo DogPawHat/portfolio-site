@@ -1,0 +1,29 @@
+---
+interface Props {
+  class?: string;
+  orientation?: "horizontal" | "vertical";
+}
+
+const { class: className = "" } = Astro.props;
+
+// Get orientation from parent carousel if available
+const orientation = Astro.slots.has("parent")
+  ? "horizontal"
+  : Astro.slots.has("parent") &&
+      Astro.slots.get("parent").getAttribute("data-orientation") === "vertical"
+    ? "vertical"
+    : "horizontal";
+---
+
+<div data-embla-viewport class="overflow-hidden">
+  <div
+    data-embla-container
+    class:list={[
+      "flex",
+      orientation === "horizontal" ? "-ml-4" : "-mt-4 flex-col",
+      className,
+    ]}
+  >
+    <slot />
+  </div>
+</div>
