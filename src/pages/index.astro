@@ -2,6 +2,9 @@
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 import SiteLayout from "../layouts/SiteLayout.astro";
 
+import ArrowLeft from "../icons/lucide/arrow-left.svg";
+import ArrowRight from "../icons/lucide/arrow-right.svg";
+
 import Cursor from "../icons/tech/cursor_dark.svg";
 import Nextjs from "../icons/tech/nextjs_icon_dark.svg";
 import Node from "../icons/tech/nodejs.svg";
@@ -50,11 +53,18 @@ import Typescript from "../icons/tech/typescript.svg";
     Previous Commercial Projects
   </h3>
 
-  <div id="projects-carousel" class="embla">
-    <div class="embla__viewport overflow-hidden">
-      <div class="embla__container flex">
+  <div
+    id="projects-carousel"
+    class="relative w-full max-w-xs"
+    role="region"
+    aria-roledescription="carousel"
+  >
+    <div class="overflow-hidden">
+      <div class="flex -ml-4">
         <div
-          class="embla__slide flex-[0_0_80%] mx-[10%] min-w-0 rounded-lg overflow-hidden shadow-lg bg-gray-800"
+          role="group"
+          aria-roledescription="slide"
+          class="min-w-0 shrink-0 grow-0 basis-full pl-4 rounded-lg overflow-hidden shadow-lg bg-gray-800"
         >
           <div class="aspect-video">
             <img
@@ -71,7 +81,9 @@ import Typescript from "../icons/tech/typescript.svg";
         </div>
 
         <div
-          class="embla__slide flex-[0_0_80%] mx-[10%] min-w-0 rounded-lg overflow-hidden shadow-lg bg-gray-800"
+          role="group"
+          aria-roledescription="slide"
+          class="min-w-0 shrink-0 grow-0 basis-full pl-4 rounded-lg overflow-hidden shadow-lg bg-gray-800"
         >
           <div class="aspect-video">
             <img
@@ -86,7 +98,9 @@ import Typescript from "../icons/tech/typescript.svg";
         </div>
 
         <div
-          class="embla__slide flex-[0_0_80%] mx-[10%] min-w-0 rounded-lg overflow-hidden shadow-lg bg-gray-800"
+          role="group"
+          aria-roledescription="slide"
+          class="min-w-0 shrink-0 grow-0 basis-full pl-4 rounded-lg overflow-hidden shadow-lg bg-gray-800"
         >
           <div class="aspect-video">
             <img
@@ -102,28 +116,20 @@ import Typescript from "../icons/tech/typescript.svg";
           </div>
         </div>
       </div>
-      <button class="embla__prev">Prev</button>
-      <button class="embla__next">Next</button>
     </div>
+
+    <button
+      class="absolute h-8 w-8 rounded-full -left-12 top-1/2 -translate-y-1/2 bg-white text-gray-900 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-800"
+    >
+      <ArrowLeft class="h-4 w-4" />
+      <span class="sr-only">Previous slide</span>
+    </button>
+
+    <button
+      class="absolute h-8 w-8 rounded-full -right-12 top-1/2 -translate-y-1/2 bg-white text-gray-900 hover:bg-gray-100 dark:bg-gray-800 dark:text-gray-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-800"
+    >
+      <ArrowRight class="h-4 w-4" />
+      <span class="sr-only">Next slide</span>
+    </button>
   </div>
-  <script>
-    import EmblaCarousel from "embla-carousel";
-
-    const projectCarousel = document.getElementById("projects-carousel");
-
-    if (projectCarousel) {
-      const options = { loop: false };
-      const viewport = projectCarousel.querySelector(
-        ".embla__viewport"
-      ) as HTMLElement;
-
-      const emblaApi = EmblaCarousel(viewport, options);
-
-      const prevButton = projectCarousel.querySelector(".embla__prev");
-      const nextButton = projectCarousel.querySelector(".embla__next");
-
-      prevButton?.addEventListener("click", () => emblaApi.scrollPrev(), false);
-      nextButton?.addEventListener("click", () => emblaApi.scrollNext(), false);
-    }
-  </script>
 </SiteLayout>
