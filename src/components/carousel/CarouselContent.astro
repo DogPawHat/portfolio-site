@@ -6,13 +6,8 @@ interface Props {
 
 const { class: className = "" } = Astro.props;
 
-// Get orientation from parent carousel if available
-const orientation = Astro.slots.has("parent")
-  ? "horizontal"
-  : Astro.slots.has("parent") &&
-      Astro.slots.get("parent").getAttribute("data-orientation") === "vertical"
-    ? "vertical"
-    : "horizontal";
+// hard coded until i learn astro better
+const orientation = "horizontal";
 ---
 
 <div data-embla-viewport class="overflow-hidden">
