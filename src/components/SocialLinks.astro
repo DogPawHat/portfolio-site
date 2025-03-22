@@ -1,0 +1,37 @@
+---
+import Bluesky from "../icons/lucide/Bluesky.astro";
+import Github from "../icons/lucide/Github.astro";
+import Linkedin from "../icons/lucide/Linkedin.astro";
+import Mail from "../icons/lucide/Mail.astro";
+---
+
+<div class="flex justify-center space-x-6 my-8">
+  <a
+    href="mailto:ciaran.curley.11.11@gmail.com"
+    class="text-gray-400 hover:text-indigo-400 transition-colors"
+    aria-label="Email"
+  >
+    <Mail className="w-6 h-6" />
+  </a>
+  <a
+    href="https://bsky.app/profile/dogpawhat"
+    class="text-gray-400 hover:text-indigo-400 transition-colors"
+    aria-label="Bluesky"
+  >
+    <Bluesky className="w-6 h-6" />
+  </a>
+  <a
+    href="https://github.com/dogpawhat"
+    class="text-gray-400 hover:text-indigo-400 transition-colors"
+    aria-label="GitHub"
+  >
+    <Github className="w-6 h-6" />
+  </a>
+  <a
+    href="https://www.linkedin.com/in/dogpawhat/"
+    class="text-gray-400 hover:text-indigo-400 transition-colors"
+    aria-label="LinkedIn"
+  >
+    <Linkedin className="w-6 h-6" />
+  </a>
+</div>
