@@ -5,33 +5,65 @@ import Linkedin from "../icons/lucide/Linkedin.astro";
 import Mail from "../icons/lucide/Mail.astro";
 ---
 
-<div class="flex justify-center space-x-6 my-8">
+<div class="flex flex-wrap justify-center gap-8 my-8">
   <a
     href="mailto:ciaran.curley.11.11@gmail.com"
-    class="text-gray-400 hover:text-indigo-400 transition-colors"
+    class="flex flex-col items-center group"
     aria-label="Email"
   >
-    <Mail className="w-6 h-6" />
+    <div
+      class="p-3 rounded-full bg-gray-800 group-hover:bg-indigo-600 transition-colors"
+    >
+      <Mail className="w-6 h-6 text-gray-400 group-hover:text-white" />
+    </div>
+    <span
+      class="mt-2 text-sm text-gray-400 group-hover:text-indigo-400 transition-colors"
+      >Email</span
+    >
   </a>
   <a
     href="https://bsky.app/profile/dogpawhat"
-    class="text-gray-400 hover:text-indigo-400 transition-colors"
+    class="flex flex-col items-center group"
     aria-label="Bluesky"
   >
-    <Bluesky className="w-6 h-6" />
+    <div
+      class="p-3 rounded-full bg-gray-800 group-hover:bg-indigo-600 transition-colors"
+    >
+      <Bluesky className="w-6 h-6 text-gray-400 group-hover:text-white" />
+    </div>
+    <span
+      class="mt-2 text-sm text-gray-400 group-hover:text-indigo-400 transition-colors"
+      >Bluesky</span
+    >
   </a>
   <a
     href="https://github.com/dogpawhat"
-    class="text-gray-400 hover:text-indigo-400 transition-colors"
+    class="flex flex-col items-center group"
     aria-label="GitHub"
   >
-    <Github className="w-6 h-6" />
+    <div
+      class="p-3 rounded-full bg-gray-800 group-hover:bg-indigo-600 transition-colors"
+    >
+      <Github className="w-6 h-6 text-gray-400 group-hover:text-white" />
+    </div>
+    <span
+      class="mt-2 text-sm text-gray-400 group-hover:text-indigo-400 transition-colors"
+      >GitHub</span
+    >
   </a>
   <a
     href="https://www.linkedin.com/in/dogpawhat/"
-    class="text-gray-400 hover:text-indigo-400 transition-colors"
+    class="flex flex-col items-center group"
     aria-label="LinkedIn"
   >
-    <Linkedin className="w-6 h-6" />
+    <div
+      class="p-3 rounded-full bg-gray-800 group-hover:bg-indigo-600 transition-colors"
+    >
+      <Linkedin className="w-6 h-6 text-gray-400 group-hover:text-white" />
+    </div>
+    <span
+      class="mt-2 text-sm text-gray-400 group-hover:text-indigo-400 transition-colors"
+      >LinkedIn</span
+    >
   </a>
 </div>
