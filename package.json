@@ -10,12 +10,11 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.1.0",
+    "@astrojs/mdx": "^4.2.1",
     "@astrojs/rss": "^4.0.11",
-    "@astrojs/sitemap": "^3.2.1",
-    "@astrojs/solid-js": "^5.0.5",
+    "@astrojs/sitemap": "^3.3.0",
     "@tailwindcss/vite": "^4.0.9",
-    "astro": "^5.4.1",
+    "astro": "^5.5.4",
     "embla-carousel": "^8.5.2",
     "lucide": "^0.479.0",
     "solid-js": "^1.9.5",
