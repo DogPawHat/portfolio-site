@@ -5,11 +5,11 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../../consts";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
-<SiteLayout title={SITE_TITLE} description={SITE_DESCRIPTION} activeLink="blog">
+<SiteLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <h2 class="text-3xl font-bold text-white mb-6">Blog</h2>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
