@@ -8,7 +8,7 @@ type Props = CollectionEntry<"blog">["data"];
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
-<SiteLayout title={title} description={description} activeLink="blog">
+<SiteLayout title={title} description={description}>
   <article>
     <div class="w-full mb-8">
       {
