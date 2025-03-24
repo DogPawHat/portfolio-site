@@ -1,23 +1,7 @@
----
-// Bluesky icon Copyright 2023–2025 Bluesky PBC
-// See https://bluesky.org/legal/trademark-policy for license details.
-
-interface Props {
-  className?: string;
-}
-
-interface Props {
-  className?: string;
-}
-
-const { className } = Astro.props;
----
-
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  fill="none"
-  viewBox="0 0 24 24"
-  class={className}
+<!-- 
+Bluesky icon Copyright 2023–2025 Bluesky PBC
+See https://bluesky.org/legal/trademark-policy for license details. -->
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
   ><path
     fill="none"
     stroke="currentColor"
