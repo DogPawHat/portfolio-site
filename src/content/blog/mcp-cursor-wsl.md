@@ -2,7 +2,7 @@
 title: "Best way to use MCP Servers with Cursor in WSL"
 description: "Do not lose faith, we can avoid the horrors of Windows with MCP!"
 pubDate: "May 02 2025"
-heroImage: "/blog-placeholder-1.jpg"
+heroImage: "/blog-placeholder-2.jpg"
 ---
 
 Cursor when it's install on Windows and remoting into a WSL instance has an annoying limitation. Per https://docs.cursor.com/context/model-context-protocol#remote-development:
