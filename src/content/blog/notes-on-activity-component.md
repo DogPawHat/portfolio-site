@@ -114,3 +114,7 @@ Using the Tabs component with Activity isn't that hard, but it does require a bi
 And you get the best of both worlds. Nice.
 
 Hope you find this experiment useful. The code is hosted at https://github.com/DogPawHat/test-activity-query, and the side is hosted at https://activity-query.dogpawhat.tech/. Enjoy!
+
+### PS:
+
+I should mention if you're using a framework or router like Tanstack Start/Query, React Route or Next.js, it's still preferable to "render as you fetch". Often you'll have all the info you need in the URL to kick off a prefetch with `prefetchQuery` or `ensureQueryData`. See the Tanstack docs and this KCD blog post for more detail: https://www.epicreact.dev/render-as-you-fetch
