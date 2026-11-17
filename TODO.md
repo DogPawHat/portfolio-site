@@ -3,4 +3,7 @@
 - [ ] bio on home page
 - [x] skills list
 - [x] carosel v1
+
+## Archived
+
 - [ ] list projects/brag sheet in route

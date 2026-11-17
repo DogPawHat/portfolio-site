@@ -36,10 +36,10 @@ The site's claim is about one specific person, so a generic template can't make 
 ## Capabilities and Constraints
 
 - **Stack:** Astro 7, Tailwind CSS 4 (with `@tailwindcss/typography`), MDX, `@astrojs/rss` and `@astrojs/sitemap`, built with Vite+ and pnpm. The output is a static site.
-- **Domain:** `dogpawhat.tech`. `astro.config.mjs` still has `site: "https://example.com"`, so canonical, RSS and OG URLs are wrong until it's updated.
-- **Routes:** home (`/`), blog index (`/blog`), blog posts (`/blog/[slug]`), RSS (`/rss.xml`).
+- **Domain:** `dogpawhat.tech` (set as `site` in `astro.config.mjs`).
+- **Routes:** home (`/`) only. The blog routes (`/blog`, `/blog/[slug]`) and the RSS feed were removed while the homepage redesign is built; the blog is being rebuilt from scratch separately. The posts in `src/content/blog/` are kept.
 - **Blog content collection:** `src/content/blog/`, with frontmatter fields title, description, pubDate, optional updatedDate and optional heroImage.
-- **Planned (from TODO.md):** a bio on the home page, better links, and a projects / brag-sheet route.
+- **Planned (from TODO.md):** a bio on the home page and better links. The projects / brag-sheet route is archived for now.
 - **Open:** which projects, employers, roles, talks and results appear on the projects page and in the bio. Ciarán will supply these.
 
 ## Brand Commitments
