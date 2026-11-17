@@ -4,10 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "dev:tailscale": "astro dev --host \"$(tailscale ip -4)\" --allowed-hosts .ts.net",
     "build": "astro build",
     "preview": "astro preview",
-    "preview:tailscale": "astro preview --host \"$(tailscale ip -4)\" --allowed-hosts .ts.net",
     "format": "vp fmt .",
     "astro": "astro",
     "knip": "knip"
