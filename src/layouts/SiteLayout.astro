@@ -1,4 +1,6 @@
 ---
+import { getImage } from "astro:assets";
+import parkPath from "../assets/park-path.jpg";
 import BaseHead from "../components/BaseHead.astro";
 import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
@@ -8,6 +10,12 @@ interface Props {
 }
 
 const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
+
+const background = await getImage({
+  src: parkPath,
+  format: "webp",
+  quality: 60,
+});
 ---
 
 <!doctype html>
@@ -16,8 +24,13 @@ const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
     <BaseHead title={title} description={description} />
   </head>
   <body class="bg-gray-900 text-gray-100">
+    <div
+      aria-hidden="true"
+      class="fixed inset-0 -z-5 bg-cover bg-top"
+      style={`background-image: url(${background.src})`}
+    ></div>
     <div class="min-h-screen">
-      <main class="max-w-4xl mx-auto flex-1 p-8 md:p-16">
+      <main class="max-w-6xl mx-auto px-6 py-12 md:px-16 md:py-20">
         <slot />
       </main>
     </div>
