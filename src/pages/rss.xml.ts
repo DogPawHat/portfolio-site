@@ -1,12 +1,10 @@
 import rss from "@astrojs/rss";
 import type { APIRoute } from "astro";
-import { getCollection } from "astro:content";
 import { BLOG_DESCRIPTION, SITE_TITLE } from "../consts";
+import { getPosts } from "../lib/leaflet/posts";
 
 export const GET: APIRoute = async (context) => {
-  const posts = (await getCollection("blog")).sort(
-    (a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf(),
-  );
+  const posts = await getPosts();
   return rss({
     title: `Blog - ${SITE_TITLE}`,
     description: BLOG_DESCRIPTION,

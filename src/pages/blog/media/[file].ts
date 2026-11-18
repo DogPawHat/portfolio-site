@@ -1,12 +1,12 @@
 // Copies the images used in posts from the PDS into the built site, so
 // readers don't depend on the PDS being reachable.
 import type { APIRoute, GetStaticPaths } from "astro";
-import { getCollection } from "astro:content";
 import { blobUrl } from "../../../lib/leaflet/pds";
+import { getPosts } from "../../../lib/leaflet/posts";
 import { collectBlobs, mediaFileName } from "../../../lib/leaflet/prepare";
 
 export const getStaticPaths = (async () => {
-  const posts = await getCollection("blog");
+  const posts = await getPosts();
   const blobs = posts.flatMap((post) => collectBlobs(post.data.content));
   const byName = new Map(blobs.map((blob) => [mediaFileName(blob), blob]));
   return [...byName].map(([file, blob]) => ({

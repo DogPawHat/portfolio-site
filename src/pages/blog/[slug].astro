@@ -1,16 +1,17 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
 import Blocks from "../../components/leaflet/Blocks.astro";
 import SocialLinks from "../../components/SocialLinks.astro";
 import { SITE_TITLE } from "../../consts";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import { formatDate } from "../../lib/leaflet/format";
+import type { Post } from "../../lib/leaflet/loader";
+import { getPosts } from "../../lib/leaflet/posts";
 import { prepareDocument } from "../../lib/leaflet/prepare";
 
-type Props = { post: CollectionEntry<"blog">; redirectTo?: string };
+type Props = { post: Post; redirectTo?: string };
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
+  const posts = await getPosts();
   return posts.flatMap((post) => [
     { params: { slug: post.id }, props: { post } },
     // The Leaflet record key works as an address too, and never changes even

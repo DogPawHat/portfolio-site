@@ -17,6 +17,13 @@ const postSchema = z.object({
   content: z.unknown(),
 });
 
+/** A blog post as stored in the content collection. */
+export interface Post {
+  /** The title slug, used in the post's address. */
+  id: string;
+  data: z.infer<typeof postSchema>;
+}
+
 /**
  * Loads the publication's posts from the PDS at build time. Entry ids are
  * title slugs; the record key is kept in `rkey`.
