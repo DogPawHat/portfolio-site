@@ -26,5 +26,10 @@
     "typescript": "^7.0.2",
     "vite-plus": "catalog:"
   },
+  "knip": {
+    "entry": [
+      "netlify/functions/*.mts"
+    ]
+  },
   "packageManager": "pnpm@12.21.0"
 }

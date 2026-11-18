@@ -1,0 +1,97 @@
+---
+import { Code } from "astro:components";
+import type { ListItem, Prepared } from "../../lib/leaflet/prepare";
+import List from "./List.astro";
+
+interface Props {
+  blocks: Prepared[];
+  /** Where to send readers for blocks this site can't render. */
+  leafletUrl: string;
+}
+
+const { blocks, leafletUrl } = Astro.props;
+---
+
+{blocks.map((block) => {
+  switch (block.kind) {
+    case "text":
+      return <p set:html={block.html} />;
+    case "heading": {
+      const Heading = `h${block.level}`;
+      return <Heading id={block.id} set:html={block.html} />;
+    }
+    case "quote":
+      return (
+        <blockquote>
+          <p set:html={block.html} />
+        </blockquote>
+      );
+    case "code":
+      return (
+        <Code code={block.code} lang={block.lang as any} theme="github-dark" />
+      );
+    case "image":
+      return (
+        <img
+          src={block.src}
+          alt={block.alt}
+          width={block.width}
+          height={block.height}
+          loading="lazy"
+          decoding="async"
+          class="rounded-lg"
+        />
+      );
+    case "list":
+      return (
+        <List
+          ordered={block.ordered}
+          start={block.start}
+          items={block.items as ListItem[]}
+        />
+      );
+    case "website":
+      return (
+        <a
+          href={block.href}
+          class="not-prose my-6 flex overflow-hidden rounded-lg bg-gray-900 text-gray-100 transition-colors hover:bg-gray-950 hover:text-gray-100"
+        >
+          <span class="flex min-w-0 flex-1 flex-col gap-1 p-4">
+            <span class="font-bold">{block.title}</span>
+            {block.description && (
+              <span class="line-clamp-2 text-sm text-gray-400">
+                {block.description}
+              </span>
+            )}
+            <span class="truncate text-sm text-indigo-400">
+              {new URL(block.href).hostname}
+            </span>
+          </span>
+          {block.image && (
+            <img
+              src={block.image}
+              alt=""
+              loading="lazy"
+              decoding="async"
+              class="hidden w-40 shrink-0 object-cover sm:block"
+            />
+          )}
+        </a>
+      );
+    case "subpage":
+      return (
+        <aside class="my-8 rounded-lg bg-gray-900 px-5 py-1 md:px-8">
+          <Astro.self blocks={block.blocks} leafletUrl={leafletUrl} />
+        </aside>
+      );
+    case "rule":
+      return <hr />;
+    default:
+      return (
+        <p class="text-sm text-gray-400">
+          This part of the post can't be shown here.{" "}
+          <a href={leafletUrl}>Read it on Leaflet.</a>
+        </p>
+      );
+  }
+})}
