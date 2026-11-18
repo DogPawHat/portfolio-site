@@ -65,11 +65,21 @@ typography:
     fontSize: "1.125rem"
     fontWeight: 400
     lineHeight: 1.778
+  body-mobile:
+    fontFamily: "Atkinson, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 400
+    lineHeight: 1.75
   label:
     fontFamily: "Atkinson, sans-serif"
     fontSize: "0.875rem"
     fontWeight: 400
     lineHeight: 1.429
+  photo-label:
+    fontFamily: "Atkinson, sans-serif"
+    fontSize: "1rem"
+    fontWeight: 400
+    lineHeight: 1.5
 rounded:
   lg: "8px"
   2xl: "16px"
@@ -95,7 +105,7 @@ components:
     textColor: "{colors.paper-bright}"
   social-label:
     textColor: "{colors.text-on-photo}"
-    typography: "{typography.label}"
+    typography: "{typography.photo-label}"
   social-label-hover:
     textColor: "{colors.sky-pale}"
   photo-link:
@@ -111,7 +121,7 @@ components:
     textColor: "{colors.ink}"
     typography: "{typography.body}"
     rounded: "{rounded.2xl}"
-    padding: "40px 24px"
+    padding: "40px 20px"
   post-entry-title:
     textColor: "{colors.ink}"
     typography: "{typography.entry-title}"
@@ -185,7 +195,7 @@ A warm paper-and-ink UI palette with one sky-blue accent, all of it sampled from
 
 **Display Font:** Atkinson Hyperlegible, self-hosted as `Atkinson` (falling back to sans-serif)
 **Body Font:** Atkinson Hyperlegible
-**Character:** One humanist sans that does everything. It was designed for low-vision legibility, so it reads clearly over a busy photo, and it carries a plain, friendly voice instead of a portfolio-template polish. Only regular (400) and bold (700) are loaded, so any intermediate weight renders as one of the two. Code is set in the browser's monospace stack; no mono font is loaded.
+**Character:** One humanist sans that does everything. It was designed for low-vision legibility, so it reads clearly over a busy photo, and it carries a plain, friendly voice instead of a portfolio-template polish. Only regular (400) and bold (700) are loaded, so any intermediate weight renders as one of the two. Both are self-hosted WOFF2 files; regular is preloaded on every page, bold only on the blog pages, since the home page sets no bold type. Code is set in the browser's monospace stack; no mono font is loaded.
 
 ### Hierarchy
 
@@ -194,8 +204,9 @@ A warm paper-and-ink UI palette with one sky-blue accent, all of it sampled from
 - **Post Title** (700; 3rem on desktop, 2.25rem on mobile; tracking -0.025em; balanced wrapping): The title of a post, at the top of its reading panel.
 - **Entry Title** (700, 1.5rem, 1.333): Post titles in the blog index.
 - **Body Lead** (400, 1.25rem, 1.4): The intro paragraph on the photo, capped at about 42rem wide, and the link to the blog under it. Also a post's description under its title, in Soft Ink.
-- **Body** (400, 1.125rem, 1.778): Long-form text on the reading panel.
-- **Label** (400, 0.875rem, 1.429): Social link labels, post dates and tags, and the small lines on link cards.
+- **Body** (400; 1.125rem with line-height 1.778 from `md`, 1rem with 1.75 below it): Long-form text on the reading panel. Phones get the smaller size so a line holds a sensible number of words in the narrower column.
+- **Photo Label** (400, 1rem, 1.5): The labels under the social link chips. They sit straight on the photo, often over sunlit grass on a phone, so they get a step more size than Label.
+- **Label** (400, 0.875rem, 1.429): The byline, date and tags under a post title, the dates in the blog index, and the small lines on link cards. Label type stays on paper; anything that small is too faint on the photo.
 
 ### Named Rules
 
@@ -207,9 +218,9 @@ There is one centered container, 72rem (1152px) wide, with 24px side and 48px ve
 
 - **Home:** One left-aligned column. The name, then a lead paragraph capped at about 42rem, then the link to the blog, then the social row (32px gaps, wrapping). Content starts at the top and the rest of the viewport is photograph.
 - **Blog index:** A row of two links on the photo (back to the home page, and the RSS feed), the page title on the photo, then a paper panel holding the list of posts, then the social link chips on the photo. The panel is capped at 48rem and sits at the left edge of the container, so the photo stays visible beside it on wide screens.
-- **Blog post:** A row of two links on the photo, spread across the panel's 48rem width, then the reading panel with the post's title, description, date and tags above the text, then the social link chips on the photo so contact is one step away.
+- **Blog post:** A row of two links on the photo, spread across the panel's 48rem width, then the reading panel with the post's title, description, byline, date and tags above the text, then the social link chips on the photo so contact is one step away.
 
-Links above a panel sit 32px clear of what follows, and the blog index title sits 40px above its panel. The reading panel has 24px side and 40px vertical padding on mobile, rising to 48px and 56px from `md`; the index panel has 24px and 16px, rising to 48px and 32px, with 24px above and below each entry.
+Links above a panel sit 32px clear of what follows, and the blog index title sits 40px above its panel. Below `md`, both panels reach out 12px past the container's 24px gutter (a negative side margin), so they sit 12px from the screen edge with a sliver of photo still showing on either side, while the text on the photo keeps the full 24px gutter. That gives a text column of 256px at a 320px screen and 311px at 375px. The reading panel has 20px side and 40px vertical padding on mobile, rising to 48px and 56px from `md`, where the panel sits flush with the container; the index panel has 20px and 16px, rising to 48px and 32px, with 24px above and below each entry.
 
 The spacing rhythm follows Tailwind's 4px scale, using 8 / 12 / 16 / 24 / 32 / 40 / 48 / 56 / 64 / 80px. There is no site header, nav bar or footer. Each page is just the container on the photograph.
 
@@ -219,8 +230,8 @@ Depth comes from the photograph. The UI stays nearly flat on top of it. The phot
 
 ### Shadow Vocabulary
 
-- **Photo Lift, strong** (Tailwind `text-shadow-lg` in black at 50–80%): The display name and the blog index title (50%), and the lead paragraph and the link to the blog (80%). Longer text gets the heavier shadow.
-- **Photo Lift, light** (Tailwind `text-shadow-md` in black at 60%): Small labels and the links above a panel.
+- **Photo Lift, strong** (Tailwind `text-shadow-lg` in black at 50–80%): The display name and the blog index title (50%), and the lead paragraph, the link to the blog and the social chip labels (80%). Longer or smaller text gets the heavier shadow; big type needs less.
+- **Photo Lift, light** (Tailwind `text-shadow-md` in black at 60%): The links above a panel, which sit over the darker foliage at the top of the photo.
 
 ### Named Rules
 
@@ -237,7 +248,7 @@ The shapes are soft and simple. Interactive icons sit in perfect circles (`round
 A row of round paper buttons, each with a small label underneath. This is the site's main call to action.
 
 - **Shape:** A circle, 48px across, holding a 24px Lucide-style stroke icon (or the custom Bluesky mark).
-- **Rest:** A Birch Paper fill with a Shade Ink icon. The label below is Open White in Label type with the light Photo Lift shadow.
+- **Rest:** A Birch Paper fill with a Shade Ink icon. The label below is Open White in Photo Label type with the strong Photo Lift shadow (black at 80%), so it holds up where the chips land on bright grass on a phone.
 - **Hover:** The fill turns Open Sky, the icon turns Bright Paper and the label tints to Pale Sky. The colors transition over 150ms with the standard ease.
 - **Focus:** The shared white focus ring around the whole link (see Focus and Selection).
 - **Set:** Email, Bluesky, GitHub and LinkedIn, in that order.
@@ -247,16 +258,20 @@ A row of round paper buttons, each with a small label underneath. This is the si
 The opaque paper surface that carries anything longer than a short paragraph.
 
 - **Shape:** Birch Paper with 16px corners, capped at 48rem wide, no border and no shadow.
-- **Post header:** The Post Title in Shade Ink, the description in Body Lead and Soft Ink, then the date and tags in Label type and Soft Ink.
-- **Text:** Tailwind Typography (`prose prose-lg`, uncapped inside the panel) with its colors remapped to the palette: body, headings, bold text and quotes in Shade Ink; counters and captions in Soft Ink; bullets and the quote rule in Tarmac; horizontal rules in Sunk Paper; links in Open Sky.
-- **Images:** 8px corners.
-- **Footnotes:** A numbered list at the end of the post, after a horizontal rule, in 1rem type. Footnote markers inside headings are set at half the heading's size.
+- **Post header:** The Post Title in Shade Ink, the description in Body Lead and Soft Ink, then one meta line in Label type and Soft Ink: "By Ciarán Curley · date · tags".
+- **Byline:** Many visitors land on a post from a shared link, and on a phone the page title is the only other place the name appears. So the name sits in the meta line, linking to the home page (`rel="author"`), as an underlined Open Sky link that darkens to Deep Sky on hover. It sits on paper rather than in the link row on the photo, so it stays legible and reads as a byline rather than navigation, and it is always in the first phone viewport. The name and the date never break inside themselves; long tag lists wrap after them. Like the links on the photo, it carries a 44px tap area (see Tap Areas). The 16px gap above the line keeps that box clear of the description.
+- **Text:** Tailwind Typography (`prose md:prose-lg`, uncapped inside the panel: 16px body below `md`, 18px from it) with its colors remapped to the palette: body, headings, bold text and quotes in Shade Ink; counters and captions in Soft Ink; bullets and the quote rule in Tarmac; horizontal rules in Sunk Paper; links in Open Sky.
+- **Images:** 8px corners, at the size Leaflet records so nothing shifts as they load. Alt text comes from the post on Leaflet and is never written by the site.
+- **Animated images:** At build time the site reads each post image and, if it has more than one frame (an animated GIF, WebP, AVIF or PNG), saves its first frame as a WebP of the same size. Readers who set `prefers-reduced-motion: reduce` get that still frame through a `<picture>` source, even without JavaScript. Under every animated image sits a pause button in Label type and Open Sky (Deep Sky on hover), with a 16px Lucide pause or play icon and the label "Pause animation" or "Play animation". It switches between the animation and the still for anyone, starts paused for reduced-motion readers, and has a 44px-tall tap area whose lower 12px overlaps the gap below. Without JavaScript the button stays hidden, so there is never a control that does nothing.
+- **Footnotes:** A numbered list at the end of the post, after a horizontal rule, in 0.875rem type below `md` and 1rem from it. Footnote markers inside headings are set at half the heading's size.
+- **Footnote tap targets:** A footnote marker or a "↩" back-link is only a few pixels wide, so each carries an invisible, absolutely positioned `::after` box, 32px square and centred on it. It widens the tap area without moving the text or changing the line height. Where that box overlaps a neighbouring link, the link wins: other links in the text sit one layer above it (`position: relative; z-index: 1`).
+- **Wrapping:** Long-form text uses `overflow-wrap: anywhere`, so bare URLs (common in footnotes) and long inline code break to fit the column instead of pushing the page sideways. Paragraphs and list items use `text-wrap: pretty` and headings `text-wrap: balance`, which matters most in the phone-width column. Code blocks are the exception: they never wrap and scroll inside their own box.
 
 ### Post List
 
 The blog index: a Reading Panel holding one entry per post, with no dividers between them.
 
-- **Entry:** The Entry Title in Shade Ink, the description at 1.125rem in Soft Ink, and the date in Label type and Soft Ink. The whole entry is one link.
+- **Entry:** The Entry Title in Shade Ink (balanced wrapping), the description at 1.125rem in Soft Ink, and the date in Label type and Soft Ink. The whole entry is one link.
 - **Hover:** The title turns Open Sky over 150ms.
 
 ### Inset Surfaces
@@ -268,17 +283,26 @@ Sunk Paper blocks with 8px corners that sit inside a Reading Panel.
 
 ### Code
 
-- **Block:** Bright Paper background with the Shiki theme `github-light-high-contrast` for syntax colors.
+- **Block:** Bright Paper background with the Shiki theme `github-light-high-contrast` for syntax colors. Set at 14px below `md` and 16px from it; long lines scroll sideways inside the block rather than wrapping.
 - **Inline:** A Sunk Paper chip (0.3em corners, 0.15em by 0.35em padding) in Shade Ink at 0.875em and weight 400, with no backticks around it.
 
 ### Links
 
 - **Inline:** Open Sky, darkening to Deep Sky on hover (set globally on `a`). Inside long-form text they are underlined.
-- **On the photo:** Open White with a Photo Lift shadow, tinting to Pale Sky on hover over 150ms. The link to the blog on the home page is this at Body Lead size, underlined with a 4px offset.
+- **On the photo:** Open White with a Photo Lift shadow, tinting to Pale Sky on hover over 150ms. The link to the blog on the home page is this at Body Lead size, underlined with a 4px offset. These links carry a 44px tap area (see Tap Areas).
 
 ### Navigation
 
-There is no persistent header, nav or footer. The blog pages carry plain text links on the photo above their panel, at 1rem with the light Photo Lift shadow: back to the home page and out to the RSS feed on the index, and back to the index and out to the post's Leaflet original on a post. The social link chips close every page.
+There is no persistent header, nav or footer. The blog pages carry plain text links on the photo above their panel, at 1rem with the light Photo Lift shadow: back to the home page and out to the RSS feed on the index, and back to the index and out to the post's Leaflet original on a post. Each link carries a 44px tap area (see Tap Areas). The social link chips close every page.
+
+### Tap Areas
+
+Text links are drawn at their text size, but a thumb needs more. Two kinds of invisible `::after` box widen their hit areas without moving any layout or stretching the focus ring, which still hugs the text:
+
+- **Short text links** (the links above a panel, the link to the blog, the byline) use the `tap-area` utility in `global.css`: a box as wide as the link and at least 44px tall, centred on it. Leave room above and below such a link for the box to reach without covering its neighbour.
+- **Footnote markers and "↩" back-links** sit inside running text, so they get a 32px square instead (see Reading Panel).
+
+The pause button under an animated image gets its height from `min-height` instead, and the social chips and the whole-entry links in the blog index are already taller than 44px.
 
 ### Focus and Selection
 
@@ -290,7 +314,7 @@ There is no persistent header, nav or footer. The blog pages carry plain text li
 
 ### Do:
 
-- **Do** treat the park photograph as the site's atmosphere: full-bleed, fixed, anchored to the top (`background-position: top`), and served as compressed WebP.
+- **Do** treat the park photograph as the site's atmosphere: full-bleed, fixed, anchored to the top (`background-position: top`), and served as AVIF (quality 50) through `image-set()`, with a WebP (quality 60) fallback declared first for browsers that can't parse it. Keep the full 2000px width: on a portrait phone `cover` scales the photo to the screen height, so savings come from encoding, not dimensions.
 - **Do** put a black text shadow under every piece of type that sits directly on the photograph (The Shadow-Lift Rule).
 - **Do** move text that runs longer than a short paragraph onto an opaque Birch Paper panel, so it stays legible over grass and foliage.
 - **Do** keep to Atkinson Hyperlegible in weights 400 and 700.
