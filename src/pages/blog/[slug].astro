@@ -33,12 +33,18 @@ const { blocks, footnotes } = prepareDocument(post.data.content);
   description={description ?? title}
   canonical={leafletUrl}
 >
-  <nav class="mb-8">
+  <nav class="mb-8 flex max-w-3xl flex-wrap justify-between gap-x-8 gap-y-2">
     <a
       href="/blog/"
       class="text-white text-shadow-md text-shadow-black/60 hover:text-indigo-200 transition-colors"
     >
       ← All posts
+    </a>
+    <a
+      href={leafletUrl}
+      class="text-white text-shadow-md text-shadow-black/60 hover:text-indigo-200 transition-colors"
+    >
+      View on Leaflet →
     </a>
   </nav>
 
@@ -78,10 +84,5 @@ const { blocks, footnotes } = prepareDocument(post.data.content);
         </section>
       )}
     </div>
-
-    <footer class="mt-12 text-sm text-gray-400">
-      Also published on <a href={leafletUrl}>Leaflet</a>, where you can comment
-      and subscribe.
-    </footer>
   </article>
 </SiteLayout>
