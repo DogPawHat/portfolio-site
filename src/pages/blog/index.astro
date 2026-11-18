@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import { SITE_TITLE } from "../../consts";
+import SocialLinks from "../../components/SocialLinks.astro";
+import { BLOG_DESCRIPTION, SITE_TITLE } from "../../consts";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import { formatDate } from "../../lib/leaflet/format";
 
@@ -9,16 +10,19 @@ const posts = (await getCollection("blog")).sort(
 );
 ---
 
-<SiteLayout
-  title={`Blog - ${SITE_TITLE}`}
-  description="Notes on React, TypeScript and web development by Ciarán Curley."
->
-  <nav class="mb-8">
+<SiteLayout title={`Blog - ${SITE_TITLE}`} description={BLOG_DESCRIPTION}>
+  <nav class="mb-8 flex max-w-3xl flex-wrap justify-between gap-x-8 gap-y-2">
     <a
       href="/"
-      class="text-white text-shadow-md text-shadow-black/60 hover:text-indigo-200 transition-colors"
+      class="text-white text-shadow-md text-shadow-black/60 hover:text-sky-pale transition-colors"
     >
       ← Home
+    </a>
+    <a
+      href="/rss.xml"
+      class="text-white text-shadow-md text-shadow-black/60 hover:text-sky-pale transition-colors"
+    >
+      RSS feed
     </a>
   </nav>
 
@@ -26,17 +30,17 @@ const posts = (await getCollection("blog")).sort(
     Blog
   </h1>
 
-  <ul class="max-w-3xl rounded-2xl bg-gray-800 px-6 py-4 md:px-12 md:py-8">
+  <ul class="max-w-3xl rounded-2xl bg-paper px-6 py-4 md:px-12 md:py-8">
     {posts.map((post) => (
       <li class="py-6">
         <a href={`/blog/${post.id}/`} class="group block">
-          <h2 class="text-2xl font-bold text-gray-50 group-hover:text-indigo-300 transition-colors">
+          <h2 class="text-2xl font-bold text-ink group-hover:text-sky transition-colors">
             {post.data.title}
           </h2>
           {post.data.description && (
-            <p class="mt-1 text-lg text-gray-300">{post.data.description}</p>
+            <p class="mt-1 text-lg text-ink-soft">{post.data.description}</p>
           )}
-          <p class="mt-2 text-sm text-gray-400">
+          <p class="mt-2 text-sm text-ink-soft">
             <time datetime={post.data.publishedAt.toISOString()}>
               {formatDate(post.data.publishedAt)}
             </time>
@@ -45,4 +49,6 @@ const posts = (await getCollection("blog")).sort(
       </li>
     ))}
   </ul>
+
+  <SocialLinks />
 </SiteLayout>

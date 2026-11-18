@@ -1,82 +1,112 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-17T21:00:00Z",
+  "generatedAt": "2026-11-18T12:00:00Z",
   "title": "Design System: Ciarán Curley",
   "extensions": {
     "colorMeta": {
-      "bg-primary": {
+      "paper": {
         "role": "neutral",
-        "displayName": "Night Slate",
-        "canonical": "#111827",
+        "displayName": "Birch Paper",
+        "canonical": "oklch(0.965 0.014 100)",
         "tonalRamp": [
-          "#030712",
-          "#111827",
-          "#1f2937",
-          "#374151",
-          "#4b5563",
-          "#9ca3af",
-          "#d1d5db",
-          "#f3f4f6"
+          "#19160b",
+          "#3f3b2a",
+          "#635e4b",
+          "#86806c",
+          "#bbb8a5",
+          "#e9e7d8",
+          "#f5f4e9",
+          "#fdfcf7"
         ]
       },
-      "bg-secondary": {
+      "paper-sunk": {
         "role": "neutral",
-        "displayName": "Slate Surface",
-        "canonical": "#1f2937",
+        "displayName": "Sunk Paper",
+        "canonical": "oklch(0.925 0.02 100)",
         "tonalRamp": [
-          "#030712",
-          "#111827",
-          "#1f2937",
-          "#374151",
-          "#4b5563",
-          "#9ca3af",
-          "#d1d5db",
-          "#f3f4f6"
+          "#19160b",
+          "#3f3b2a",
+          "#635e4b",
+          "#86806c",
+          "#bbb8a5",
+          "#e9e7d8",
+          "#f5f4e9",
+          "#fdfcf7"
         ]
       },
-      "border": {
+      "paper-bright": {
         "role": "neutral",
-        "displayName": "Slate Border",
-        "canonical": "#4b5563",
+        "displayName": "Bright Paper",
+        "canonical": "oklch(0.99 0.006 100)",
         "tonalRamp": [
-          "#030712",
-          "#111827",
-          "#1f2937",
-          "#374151",
-          "#4b5563",
-          "#9ca3af",
-          "#d1d5db",
-          "#f3f4f6"
+          "#19160b",
+          "#3f3b2a",
+          "#635e4b",
+          "#86806c",
+          "#bbb8a5",
+          "#e9e7d8",
+          "#f5f4e9",
+          "#fdfcf7"
         ]
       },
-      "text-secondary": {
+      "ink": {
         "role": "neutral",
-        "displayName": "Mist Gray",
-        "canonical": "#9ca3af",
+        "displayName": "Shade Ink",
+        "canonical": "oklch(0.25 0.03 125)",
         "tonalRamp": [
-          "#030712",
-          "#111827",
-          "#1f2937",
-          "#374151",
-          "#4b5563",
-          "#9ca3af",
-          "#d1d5db",
-          "#f3f4f6"
+          "#0b0f06",
+          "#1e2414",
+          "#3b4823",
+          "#535843",
+          "#7c846a",
+          "#aab29a",
+          "#d1d7c5",
+          "#edf0e7"
         ]
       },
-      "text-primary": {
+      "ink-soft": {
         "role": "neutral",
-        "displayName": "Paper White",
-        "canonical": "#f9fafb",
+        "displayName": "Soft Ink",
+        "canonical": "oklch(0.45 0.035 120)",
         "tonalRamp": [
-          "#030712",
-          "#111827",
-          "#1f2937",
-          "#374151",
-          "#4b5563",
-          "#9ca3af",
-          "#d1d5db",
-          "#f3f4f6"
+          "#0b0f06",
+          "#1e2414",
+          "#3b4823",
+          "#535843",
+          "#7c846a",
+          "#aab29a",
+          "#d1d7c5",
+          "#edf0e7"
+        ]
+      },
+      "canopy": {
+        "role": "neutral",
+        "displayName": "Canopy",
+        "canonical": "oklch(0.38 0.06 125)",
+        "tonalRamp": [
+          "#0b0f06",
+          "#1e2414",
+          "#3b4823",
+          "#535843",
+          "#7c846a",
+          "#aab29a",
+          "#d1d7c5",
+          "#edf0e7"
+        ]
+      },
+      "tarmac": {
+        "role": "neutral",
+        "displayName": "Tarmac",
+        "canonical": "oklch(0.6 0.03 95)",
+        "tonalRamp": [
+          "#19160b",
+          "#3f3b2a",
+          "#635e4b",
+          "#86806c",
+          "#bbb8a5",
+          "#e9e7d8",
+          "#f5f4e9",
+          "#fdfcf7"
         ]
       },
       "text-on-photo": {
@@ -84,74 +114,59 @@
         "displayName": "Open White",
         "canonical": "#ffffff",
         "tonalRamp": [
-          "#030712",
-          "#111827",
-          "#1f2937",
-          "#374151",
-          "#4b5563",
-          "#9ca3af",
-          "#d1d5db",
+          "#19160b",
+          "#3f3b2a",
+          "#635e4b",
+          "#86806c",
+          "#bbb8a5",
+          "#e9e7d8",
+          "#f5f4e9",
           "#ffffff"
         ]
       },
-      "accent": {
+      "sky": {
         "role": "primary",
-        "displayName": "Dusk Indigo",
-        "canonical": "#818cf8",
+        "displayName": "Open Sky",
+        "canonical": "oklch(0.46 0.13 245)",
         "tonalRamp": [
-          "#1e1b4b",
-          "#312e81",
-          "#3730a3",
-          "#4f46e5",
-          "#6366f1",
-          "#818cf8",
-          "#a5b4fc",
-          "#c7d2fe"
+          "#001c38",
+          "#004077",
+          "#005c9b",
+          "#2b81bb",
+          "#60a7d6",
+          "#8cc6eb",
+          "#b8e5ff",
+          "#e3f5ff"
         ]
       },
-      "accent-dark": {
+      "sky-deep": {
         "role": "primary",
-        "displayName": "Deep Indigo",
-        "canonical": "#6366f1",
+        "displayName": "Deep Sky",
+        "canonical": "oklch(0.36 0.12 245)",
         "tonalRamp": [
-          "#1e1b4b",
-          "#312e81",
-          "#3730a3",
-          "#4f46e5",
-          "#6366f1",
-          "#818cf8",
-          "#a5b4fc",
-          "#c7d2fe"
+          "#001c38",
+          "#004077",
+          "#005c9b",
+          "#2b81bb",
+          "#60a7d6",
+          "#8cc6eb",
+          "#b8e5ff",
+          "#e3f5ff"
         ]
       },
-      "accent-deep": {
+      "sky-pale": {
         "role": "primary",
-        "displayName": "Indigo Ink",
-        "canonical": "oklch(51.1% 0.262 276.966)",
+        "displayName": "Pale Sky",
+        "canonical": "oklch(0.9 0.06 235)",
         "tonalRamp": [
-          "#1e1b4b",
-          "#312e81",
-          "#3730a3",
-          "#4f46e5",
-          "#6366f1",
-          "#818cf8",
-          "#a5b4fc",
-          "#c7d2fe"
-        ]
-      },
-      "accent-pale": {
-        "role": "primary",
-        "displayName": "Indigo Haze",
-        "canonical": "oklch(87% 0.065 274.039)",
-        "tonalRamp": [
-          "#1e1b4b",
-          "#312e81",
-          "#3730a3",
-          "#4f46e5",
-          "#6366f1",
-          "#818cf8",
-          "#a5b4fc",
-          "#c7d2fe"
+          "#001c38",
+          "#004077",
+          "#005c9b",
+          "#2b81bb",
+          "#60a7d6",
+          "#8cc6eb",
+          "#b8e5ff",
+          "#e3f5ff"
         ]
       }
     },
@@ -164,25 +179,49 @@
         "displayName": "Display (mobile)",
         "purpose": "The home page name below 768px."
       },
+      "page-title": {
+        "displayName": "Page Title",
+        "purpose": "The blog index title on the photograph, at md and up."
+      },
+      "page-title-mobile": {
+        "displayName": "Page Title (mobile)",
+        "purpose": "The blog index title below 768px."
+      },
+      "post-title": {
+        "displayName": "Post Title",
+        "purpose": "A post's title at the top of its reading panel, at md and up."
+      },
+      "post-title-mobile": {
+        "displayName": "Post Title (mobile)",
+        "purpose": "A post's title below 768px."
+      },
+      "entry-title": {
+        "displayName": "Entry Title",
+        "purpose": "Post titles in the blog index."
+      },
       "body-lead": {
         "displayName": "Body Lead",
-        "purpose": "The intro paragraph on the photograph, max about 42rem wide."
+        "purpose": "The intro paragraph and blog link on the photograph, and a post's description on paper."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Long-form text on the reading panel."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Social link labels."
+        "purpose": "Social link labels, post dates and tags, and the small lines on link cards."
       }
     },
     "shadows": [
       {
         "name": "photo-lift-strong",
         "value": "0px 1px 2px rgb(0 0 0 / 0.5), 0px 3px 2px rgb(0 0 0 / 0.5), 0px 4px 8px rgb(0 0 0 / 0.5)",
-        "purpose": "Text shadow (Tailwind text-shadow-lg, black at 50-80%) under the display name and lead paragraph on the photograph."
+        "purpose": "Text shadow (Tailwind text-shadow-lg, black at 50-80%) under the display name, the blog index title, the lead paragraph and the blog link on the photograph."
       },
       {
         "name": "photo-lift-light",
         "value": "0px 1px 1px rgb(0 0 0 / 0.6), 0px 1px 2px rgb(0 0 0 / 0.6), 0px 2px 4px rgb(0 0 0 / 0.6)",
-        "purpose": "Text shadow (Tailwind text-shadow-md, black at 60%) under small labels on the photograph."
+        "purpose": "Text shadow (Tailwind text-shadow-md, black at 60%) under small labels and the links above a panel on the photograph."
       }
     ],
     "motion": [
@@ -194,10 +233,14 @@
       {
         "name": "duration-color",
         "value": "150ms",
-        "purpose": "Color changes on social chips, icons and labels."
+        "purpose": "Color changes on social chips, labels, links on the photograph, post titles and link cards."
       }
     ],
     "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
       {
         "name": "md",
         "value": "768px"
@@ -209,9 +252,9 @@
       "name": "Social Link Chip",
       "kind": "custom",
       "refersTo": "social-chip",
-      "description": "Round slate icon button with a shadowed label beneath; the site's main contact call to action. Shown on a stand-in for the park photo.",
+      "description": "Round paper icon button with a shadowed label beneath; the site's main contact call to action. Shown on a stand-in for the park photo.",
       "html": "<div class=\"ds-photo-standin\"><a class=\"ds-social\" href=\"#\" aria-label=\"Email\"><span class=\"ds-social-chip\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"20\" height=\"16\" x=\"2\" y=\"4\" rx=\"2\"></rect><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"></path></svg></span><span class=\"ds-social-label\">Email</span></a></div>",
-      "css": ".ds-photo-standin { padding: 32px; background: linear-gradient(180deg, #4a8fd8 0%, #3d6b2a 45%, #4fa22a 100%); font-family: Atkinson, sans-serif; } .ds-social { display: inline-flex; flex-direction: column; align-items: center; text-decoration: none; } .ds-social-chip { display: flex; padding: 12px; border-radius: 9999px; background: var(--color-bg-secondary, #1f2937); color: #9ca3af; transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1), color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-social-chip svg { width: 24px; height: 24px; } .ds-social-label { margin-top: 8px; font-size: 0.875rem; line-height: 1.25rem; color: #ffffff; text-shadow: 0px 1px 1px rgb(0 0 0 / 0.6), 0px 1px 2px rgb(0 0 0 / 0.6), 0px 2px 4px rgb(0 0 0 / 0.6); transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-social:hover .ds-social-chip { background: #4f46e5; color: #ffffff; } .ds-social:hover .ds-social-label { color: #c7d2fe; } .ds-social:focus-visible { outline: 2px solid #818cf8; outline-offset: 4px; border-radius: 12px; }"
+      "css": ".ds-photo-standin { padding: 32px; background: linear-gradient(180deg, #4a8fd8 0%, #3d6b2a 45%, #4fa22a 100%); font-family: Atkinson, sans-serif; } .ds-social { display: inline-flex; flex-direction: column; align-items: center; color: #ffffff; text-decoration: none; } .ds-social-chip { display: flex; padding: 12px; border-radius: 9999px; background: var(--color-paper, #f5f4e9); color: var(--color-ink, #1e2414); transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-social-chip svg { width: 24px; height: 24px; } .ds-social-label { margin-top: 8px; font-size: 0.875rem; line-height: 1.25rem; color: #ffffff; text-shadow: 0px 1px 1px rgb(0 0 0 / 0.6), 0px 1px 2px rgb(0 0 0 / 0.6), 0px 2px 4px rgb(0 0 0 / 0.6); transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-social:hover .ds-social-chip { background: var(--color-sky, #005c9b); color: var(--color-paper-bright, #fdfcf7); } .ds-social:hover .ds-social-label { color: var(--color-sky-pale, #b8e5ff); } .ds-social:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; }"
     },
     {
       "name": "Photo Hero",
@@ -222,33 +265,65 @@
       "css": ".ds-photo-standin-hero { padding: 48px 24px; background: linear-gradient(180deg, #4a8fd8 0%, #3d6b2a 40%, #4fa22a 100%); font-family: Atkinson, sans-serif; } .ds-hero-name { margin: 0 0 24px; font-size: 3.75rem; line-height: 1; font-weight: 400; letter-spacing: -0.025em; color: #ffffff; text-shadow: 0px 1px 2px rgb(0 0 0 / 0.5), 0px 3px 2px rgb(0 0 0 / 0.5), 0px 4px 8px rgb(0 0 0 / 0.5); } .ds-hero-lead { margin: 0; max-width: 42rem; font-size: 1.25rem; line-height: 1.75rem; color: #ffffff; text-shadow: 0px 1px 2px rgb(0 0 0 / 0.8), 0px 3px 2px rgb(0 0 0 / 0.8), 0px 4px 8px rgb(0 0 0 / 0.8); }"
     },
     {
+      "name": "Photo Link",
+      "kind": "nav",
+      "refersTo": "photo-link",
+      "description": "White text links set on the photograph: the links above a blog panel, and the larger underlined link to the blog on the home page. They tint to Pale Sky on hover.",
+      "html": "<div class=\"ds-photo-standin-links\"><a class=\"ds-photo-link\" href=\"#\">All posts</a><a class=\"ds-photo-link ds-photo-link-lead\" href=\"#\">Read my blog</a></div>",
+      "css": ".ds-photo-standin-links { display: flex; flex-wrap: wrap; align-items: baseline; gap: 32px; padding: 32px; background: linear-gradient(180deg, #4a8fd8 0%, #3d6b2a 45%, #4fa22a 100%); font-family: Atkinson, sans-serif; } .ds-photo-link { font-size: 1rem; line-height: 1.5rem; color: #ffffff; text-decoration: none; text-shadow: 0px 1px 1px rgb(0 0 0 / 0.6), 0px 1px 2px rgb(0 0 0 / 0.6), 0px 2px 4px rgb(0 0 0 / 0.6); transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-photo-link-lead { font-size: 1.25rem; line-height: 1.75rem; text-decoration: underline; text-underline-offset: 4px; text-shadow: 0px 1px 2px rgb(0 0 0 / 0.8), 0px 3px 2px rgb(0 0 0 / 0.8), 0px 4px 8px rgb(0 0 0 / 0.8); } .ds-photo-link:hover { color: var(--color-sky-pale, #b8e5ff); } .ds-photo-link:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Reading Panel",
+      "kind": "card",
+      "refersTo": "reading-panel",
+      "description": "The opaque paper surface for long-form text: post title, description and date, then prose with an inline link and an inline code chip.",
+      "html": "<article class=\"ds-panel\"><h1 class=\"ds-post-title\">Post title</h1><p class=\"ds-post-desc\">A one-line description of the post.</p><p class=\"ds-post-meta\">18 November 2026 · react, typescript</p><p class=\"ds-prose\">Long-form text sits on paper in Shade Ink, with <a class=\"ds-prose-link\" href=\"#\">links in Open Sky</a> and <code class=\"ds-inline-code\">inline code</code> in a quiet chip.</p></article>",
+      "css": ".ds-panel { max-width: 48rem; padding: 40px 24px; border-radius: 16px; background: var(--color-paper, #f5f4e9); color: var(--color-ink, #1e2414); font-family: Atkinson, sans-serif; } .ds-post-title { margin: 0; font-size: 2.25rem; line-height: 2.5rem; font-weight: 700; letter-spacing: -0.025em; text-wrap: balance; } .ds-post-desc { margin: 16px 0 0; font-size: 1.25rem; line-height: 1.75rem; color: var(--color-ink-soft, #535843); } .ds-post-meta { margin: 16px 0 40px; font-size: 0.875rem; line-height: 1.25rem; color: var(--color-ink-soft, #535843); } .ds-prose { margin: 0; font-size: 1.125rem; line-height: 1.778; } .ds-prose-link { color: var(--color-sky, #005c9b); text-decoration: underline; } .ds-prose-link:hover { color: var(--color-sky-deep, #004077); } .ds-prose-link:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; } .ds-inline-code { padding: 0.15em 0.35em; border-radius: 0.3em; background: var(--color-paper-sunk, #e9e7d8); font-size: 0.875em; font-weight: 400; }"
+    },
+    {
+      "name": "Post List Entry",
+      "kind": "custom",
+      "refersTo": "post-entry-title",
+      "description": "One entry in the blog index panel. The whole entry is a link and its title turns Open Sky on hover.",
+      "html": "<ul class=\"ds-post-list\"><li><a class=\"ds-entry\" href=\"#\"><h2 class=\"ds-entry-title\">Post title</h2><p class=\"ds-entry-desc\">A one-line description of the post.</p><p class=\"ds-entry-date\">18 November 2026</p></a></li></ul>",
+      "css": ".ds-post-list { max-width: 48rem; margin: 0; padding: 16px 24px; list-style: none; border-radius: 16px; background: var(--color-paper, #f5f4e9); font-family: Atkinson, sans-serif; } .ds-post-list li { padding: 24px 0; } .ds-entry { display: block; color: var(--color-sky, #005c9b); text-decoration: none; } .ds-entry-title { margin: 0; font-size: 1.5rem; line-height: 2rem; font-weight: 700; color: var(--color-ink, #1e2414); transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-entry:hover .ds-entry-title { color: var(--color-sky, #005c9b); } .ds-entry-desc { margin: 4px 0 0; font-size: 1.125rem; line-height: 1.75rem; color: var(--color-ink, #1e2414); } .ds-entry-date { margin: 8px 0 0; font-size: 0.875rem; line-height: 1.25rem; color: var(--color-ink-soft, #535843); } .ds-entry:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
+      "name": "Link Card",
+      "kind": "card",
+      "refersTo": "inset-surface",
+      "description": "A Sunk Paper inset inside the reading panel linking to another site; the fill lifts to Bright Paper on hover.",
+      "html": "<div class=\"ds-panel\"><a class=\"ds-link-card\" href=\"#\"><span class=\"ds-link-card-title\">Linked page title</span><span class=\"ds-link-card-desc\">A short description of the linked page, clamped to two lines.</span><span class=\"ds-link-card-host\">example.com</span></a></div>",
+      "css": ".ds-panel { max-width: 48rem; padding: 40px 24px; border-radius: 16px; background: var(--color-paper, #f5f4e9); color: var(--color-ink, #1e2414); font-family: Atkinson, sans-serif; } .ds-link-card { display: flex; flex-direction: column; gap: 4px; padding: 16px; overflow: hidden; border-radius: 8px; background: var(--color-paper-sunk, #e9e7d8); color: var(--color-ink, #1e2414); text-decoration: none; transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-link-card:hover { background: var(--color-paper-bright, #fdfcf7); color: var(--color-ink, #1e2414); } .ds-link-card-title { font-weight: 700; } .ds-link-card-desc { font-size: 0.875rem; line-height: 1.25rem; color: var(--color-ink-soft, #535843); } .ds-link-card-host { font-size: 0.875rem; line-height: 1.25rem; color: var(--color-sky, #005c9b); } .ds-link-card:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; }"
+    },
+    {
       "name": "Text Link",
       "kind": "custom",
       "refersTo": "text-link",
-      "description": "Inline link in Dusk Indigo, darkening to Deep Indigo on hover.",
+      "description": "Inline link in Open Sky, darkening to Deep Sky on hover; underlined inside long-form text.",
       "html": "<p class=\"ds-link-para\">Read the <a class=\"ds-link\" href=\"#\">Activity docs</a> for more.</p>",
-      "css": ".ds-link-para { margin: 0; padding: 16px; background: var(--color-bg-primary, #111827); color: #f9fafb; font-family: Atkinson, sans-serif; font-size: 1.125rem; line-height: 1.778; } .ds-link { color: var(--color-accent, #818cf8); text-decoration: underline; text-underline-offset: 2px; transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-link:hover { color: var(--color-accent-dark, #6366f1); } .ds-link:focus-visible { outline: 2px solid #818cf8; outline-offset: 2px; border-radius: 2px; }"
+      "css": ".ds-link-para { margin: 0; padding: 16px; background: var(--color-paper, #f5f4e9); color: var(--color-ink, #1e2414); font-family: Atkinson, sans-serif; font-size: 1.125rem; line-height: 1.778; } .ds-link { color: var(--color-sky, #005c9b); text-decoration: underline; } .ds-link:hover { color: var(--color-sky-deep, #004077); } .ds-link:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; }"
     }
   ],
   "narrative": {
     "northStar": "The Local Walk",
-    "overview": "The site opens on a photograph of Ciarán's local park in Dublin: a tarmac path curving between mown grass and tall trees, under autumn light with blue sky behind. He took it on one of his walks, and the rest of the site follows from it. The interface gets out of the way. Type sits directly on the photo, lifted off it by soft black text shadows, and the few UI surfaces are plain dark slate. Nothing competes with the park.\n\nFor now the site is a single page: the homepage, whose redesign is in progress. The blog is being rebuilt separately and will extend this system when it returns.\n\nThe feel is calm, open and legible. Density is low. A single left-aligned column holds a very large name, one paragraph and a row of contact links, with plenty of photo visible around them. The typeface is Atkinson Hyperlegible, chosen for legibility rather than display flair, and it fits the mood: friendly, plain and readable at any size.\n\nThe dark slate and indigo supporting palette came with the site's starter template. It is the current UI palette and stays coherent for now, but the photograph is the authority. When the system grows, new color, mood and material should come from the park.",
+    "overview": "The site opens on a photograph of Ciarán's local park in Dublin: a tarmac path curving between mown grass and tall trees, under autumn light with blue sky behind. He took it on one of his walks, and the rest of the site follows from it. The interface gets out of the way. Type sits directly on the photo, lifted off it by soft black text shadows, and the few UI surfaces are plain birch-bark paper. Nothing competes with the park.\n\nThe site is a homepage and a blog. The homepage sets its type straight on the photograph. The blog has an index and a page per post, and puts its long-form text on an opaque paper panel in front of the same photograph.\n\nThe feel is calm, open and legible. Density is low. A single left-aligned column holds a very large name, one paragraph, a link to the blog and a row of contact links, with plenty of photo visible around them. The typeface is Atkinson Hyperlegible, chosen for legibility rather than display flair, and it fits the mood: friendly, plain and readable at any size.\n\nThe supporting palette is sampled from the photograph: birch-bark paper for surfaces, the deep shade under the trees for ink, and the sky for the one interactive accent. The photograph is the authority. When the system grows, new color, mood and material should come from the park.",
     "keyCharacteristics": [
       "A full-bleed, fixed park photograph behind every page, as the site's single source of atmosphere.",
       "White type lifted off the photo by layered black text shadows; no scrims or panels behind short text.",
       "One typeface (Atkinson Hyperlegible) in regular and bold only.",
-      "Dark slate surfaces with a single indigo accent used for interaction.",
+      "Light paper surfaces with dark ink text and a single sky-blue accent used for interaction.",
       "Left-aligned, single-column, generous margins; the photo shows through."
     ],
     "rules": [
       {
         "name": "The Park Is the Palette Rule",
-        "body": "The photograph sets the color mood. When a new color is needed (a second accent, a tag color, a highlight), sample it from the park first: grass green, shaded foliage, tarmac charcoal, birch-bark cream, autumn-leaf orange, open sky. Reach for another stock Tailwind hue only after that.",
+        "body": "The photograph sets the color mood, and every UI color is sampled from it: birch bark for paper, tree shade for ink and canopy, the path for tarmac, the sky for the accent. When a new color is needed (a second accent, a tag color, a highlight), sample it from the park first: grass green, shaded foliage, tarmac charcoal, birch-bark cream, autumn-leaf orange, open sky. Reach for a stock Tailwind hue only after that.",
         "section": "colors"
       },
       {
         "name": "The One Accent Rule",
-        "body": "Indigo is the only saturated hue in the UI, and it means \"interactive\". Don't add a second accent without retiring indigo or deriving the new one from the park.",
+        "body": "Sky is the only saturated hue in the UI, and it means \"interactive\". Don't add a second accent without retiring sky or deriving the new one from the park.",
         "section": "colors"
       },
       {
@@ -265,14 +340,15 @@
     "dos": [
       "Do treat the park photograph as the site's atmosphere: full-bleed, fixed, anchored to the top (`background-position: top`), and served as compressed WebP.",
       "Do put a black text shadow under every piece of type that sits directly on the photograph (The Shadow-Lift Rule).",
-      "Do move text that runs longer than a short paragraph onto an opaque Slate Surface so it stays legible over grass and foliage.",
+      "Do move text that runs longer than a short paragraph onto an opaque Birch Paper panel, so it stays legible over grass and foliage.",
       "Do keep to Atkinson Hyperlegible in weights 400 and 700.",
       "Do sample any new color from the park before reaching for a stock hue (The Park Is the Palette Rule).",
-      "Do keep the home page left-aligned and single-column, with plenty of photograph visible around it."
+      "Do keep every page left-aligned and single-column, with plenty of photograph visible around it.",
+      "Do step surfaces inside a panel down to Sunk Paper or up to Bright Paper instead of adding borders or shadows."
     ],
     "donts": [
       "Don't cover the photograph with full-page panels, dark overlays or gradients that hide the park.",
-      "Don't add a second accent hue next to indigo (The One Accent Rule).",
+      "Don't add a second accent hue next to sky (The One Accent Rule).",
       "Don't use font weights other than 400 and 700; Atkinson has no other weights loaded.",
       "Don't set long-form text directly on the photograph without a surface behind it."
     ]

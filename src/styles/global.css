@@ -2,16 +2,29 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-/* Custom theme configuration */
+/*
+ * The palette is sampled from the park photograph behind every page:
+ * birch-bark paper for surfaces, the deep shade under the trees for ink,
+ * and the sky for the one interactive accent.
+ */
 @theme {
-  /* Colors for dark theme */
-  --color-bg-primary: #111827; /* gray-900 */
-  --color-bg-secondary: #1f2937; /* gray-800 */
-  --color-text-primary: #f9fafb; /* gray-50 */
-  --color-text-secondary: #9ca3af; /* gray-400 */
-  --color-accent: #818cf8; /* indigo-400 */
-  --color-accent-dark: #6366f1; /* indigo-500 */
-  --color-border: #4b5563; /* gray-600 */
+  /* Surfaces */
+  --color-paper: oklch(0.965 0.014 100);
+  --color-paper-sunk: oklch(0.925 0.02 100);
+  --color-paper-bright: oklch(0.99 0.006 100);
+
+  /* Text on paper */
+  --color-ink: oklch(0.25 0.03 125);
+  --color-ink-soft: oklch(0.45 0.035 120);
+
+  /* The one accent: it means "interactive" */
+  --color-sky: oklch(0.46 0.13 245);
+  --color-sky-deep: oklch(0.36 0.12 245);
+  --color-sky-pale: oklch(0.9 0.06 235);
+
+  /* Seen only while the photo loads, or where it doesn't reach */
+  --color-canopy: oklch(0.38 0.06 125);
+  --color-tarmac: oklch(0.6 0.03 95);
 
   /* Font Family */
   --font-atkinson: "Atkinson", sans-serif;
@@ -33,47 +46,100 @@
   font-display: swap;
 }
 
-/* Base styles for dark theme */
 @layer base {
+  html {
+    scrollbar-color: var(--color-tarmac) var(--color-paper-sunk);
+  }
+
   body {
-    background-color: var(--color-bg-primary);
-    color: var(--color-text-primary);
+    background-color: var(--color-canopy);
+    color: var(--color-ink);
     font-family: var(--font-atkinson);
   }
 
   a {
-    color: var(--color-accent);
+    color: var(--color-sky);
   }
 
   a:hover {
-    color: var(--color-accent-dark);
+    color: var(--color-sky-deep);
   }
 
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: var(--color-text-primary);
+  /* The ring takes the link's own colour: white on the photo, sky on paper. */
+  :focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
+    border-radius: 2px;
   }
 
-  /* Dark mode scrollbar */
+  ::selection {
+    background-color: var(--color-sky);
+    color: var(--color-paper-bright);
+  }
+
   ::-webkit-scrollbar {
     width: 14px;
   }
 
   ::-webkit-scrollbar-track {
-    background: var(--color-bg-secondary);
+    background: var(--color-paper-sunk);
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--color-border);
+    background: var(--color-tarmac);
     border-radius: 10px;
-    border: 3px solid var(--color-bg-secondary);
+    border: 3px solid var(--color-paper-sunk);
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-accent-dark);
+    background: var(--color-sky);
   }
+}
+
+/* Long-form text on a paper surface. */
+.prose {
+  --tw-prose-body: var(--color-ink);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-lead: var(--color-ink-soft);
+  --tw-prose-links: var(--color-sky);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-counters: var(--color-ink-soft);
+  --tw-prose-bullets: var(--color-tarmac);
+  --tw-prose-hr: var(--color-paper-sunk);
+  --tw-prose-quotes: var(--color-ink);
+  --tw-prose-quote-borders: var(--color-tarmac);
+  --tw-prose-captions: var(--color-ink-soft);
+  --tw-prose-code: var(--color-ink);
+  --tw-prose-pre-code: var(--color-ink);
+  --tw-prose-pre-bg: var(--color-paper-bright);
+  --tw-prose-th-borders: var(--color-tarmac);
+  --tw-prose-td-borders: var(--color-paper-sunk);
+}
+
+.prose a:hover {
+  color: var(--color-sky-deep);
+}
+
+/* Inline code: a quiet chip instead of bold text in backticks. */
+.prose :not(pre) > code {
+  background-color: var(--color-paper-sunk);
+  border-radius: 0.3em;
+  padding: 0.15em 0.35em;
+  font-size: 0.875em;
+  font-weight: 400;
+}
+
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  content: none;
+}
+
+/* Shiki sets its theme's background inline; keep code blocks on our paper. */
+.prose pre.astro-code {
+  background-color: var(--color-paper-bright) !important;
+}
+
+/* Footnote markers in headings shouldn't shout at heading size. */
+.prose :is(h2, h3, h4) sup {
+  font-size: 0.5em;
 }
