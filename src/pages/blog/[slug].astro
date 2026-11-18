@@ -5,6 +5,7 @@ import { SITE_TITLE } from "../../consts";
 import SiteLayout from "../../layouts/SiteLayout.astro";
 import { formatDate } from "../../lib/leaflet/format";
 import type { Post } from "../../lib/leaflet/loader";
+import { BLOG } from "../../lib/leaflet/pds";
 import { getPosts } from "../../lib/leaflet/posts";
 import { prepareDocument } from "../../lib/leaflet/prepare";
 
@@ -28,6 +29,9 @@ if (redirectTo) return Astro.redirect(redirectTo);
 
 const { title, description, publishedAt, tags, leafletUrl } = post.data;
 const { blocks, footnotes } = prepareDocument(post.data.content);
+
+// Lets tools that understand standard.site find the record behind this page.
+const documentUri = `at://${BLOG.did}/site.standard.document/${post.data.rkey}`;
 ---
 
 <SiteLayout
@@ -35,6 +39,7 @@ const { blocks, footnotes } = prepareDocument(post.data.content);
   description={description ?? title}
   canonical={leafletUrl}
 >
+  <link slot="head" rel="site.standard.document" href={documentUri} />
   <nav class="mb-8 flex max-w-3xl flex-wrap justify-between gap-x-8 gap-y-2">
     <a
       href="/blog/"
