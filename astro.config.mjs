@@ -43,6 +43,12 @@ function netlifyBlogRedirects() {
 // https://astro.build/config
 export default defineConfig({
   site: "https://dogpawhat.tech",
+  // Fetch a page when someone shows intent to visit it: pointer hover
+  // (after 80ms) or keyboard focus. Skipped on Save-Data and slow connections.
+  prefetch: {
+    prefetchAll: true,
+    defaultStrategy: "hover",
+  },
   integrations: [
     mdx(),
     sitemap({ filter: (page) => !RECORD_KEY_PAGE.test(page) }),

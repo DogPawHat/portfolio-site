@@ -143,3 +143,14 @@
 .prose :is(h2, h3, h4) sup {
   font-size: 0.5em;
 }
+
+/*
+ * Cross-fade between pages using the browser's own view transitions:
+ * no JavaScript, and browsers without support navigate as normal.
+ * Skipped for anyone who asks for reduced motion.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+}
