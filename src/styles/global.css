@@ -114,6 +114,26 @@
   --tw-prose-pre-bg: var(--color-paper-bright);
   --tw-prose-th-borders: var(--color-tarmac);
   --tw-prose-td-borders: var(--color-paper-sunk);
+
+  /*
+   * Bare URLs and long inline code would otherwise push the page sideways
+   * on a phone. Break them anywhere rather than let them overflow.
+   */
+  overflow-wrap: anywhere;
+}
+
+/* In a phone-width column, avoid one-word last lines and lopsided headings. */
+.prose :is(p, li) {
+  text-wrap: pretty;
+}
+
+.prose :is(h2, h3, h4) {
+  text-wrap: balance;
+}
+
+/* Code blocks keep their lines intact and scroll inside their own box. */
+.prose pre {
+  overflow-wrap: normal;
 }
 
 .prose a:hover {

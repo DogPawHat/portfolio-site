@@ -92,10 +92,12 @@ export function renderRichText(
         const number = footnotes.length + 1;
         footnotes.push({
           number,
+          // A trailing line break would push the note's "↩" link onto a
+          // line of its own.
           html: renderRichText(
             footnote.contentPlaintext,
             footnote.contentFacets,
-          ),
+          ).replace(/(?:<br>)+$/, ""),
         });
         html += `<sup><a href="#fn-${number}" id="fnref-${number}" aria-label="Footnote ${number}">${number}</a></sup>`;
       }
