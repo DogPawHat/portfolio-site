@@ -1,0 +1,39 @@
+---
+import { isAnimated, stillFileName } from "../../lib/leaflet/media";
+import type { BlobRef } from "../../lib/leaflet/types";
+import AnimatedImage from "./AnimatedImage.astro";
+
+interface Props {
+  blob: BlobRef;
+  src: string;
+  /** From the post on Leaflet. Never written or changed by this site. */
+  alt: string;
+  width?: number;
+  height?: number;
+}
+
+const { blob, src, alt, width, height } = Astro.props;
+const still = (await isAnimated(blob))
+  ? `/blog/media/${stillFileName(blob)}`
+  : undefined;
+---
+
+{still ? (
+  <AnimatedImage
+    src={src}
+    still={still}
+    alt={alt}
+    width={width}
+    height={height}
+  />
+) : (
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading="lazy"
+    decoding="async"
+    class="rounded-lg"
+  />
+)}

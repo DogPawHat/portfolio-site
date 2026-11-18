@@ -1,6 +1,7 @@
 ---
 import { Code } from "astro:components";
 import type { ListItem, Prepared } from "../../lib/leaflet/prepare";
+import Image from "./Image.astro";
 import List from "./List.astro";
 
 interface Props {
@@ -36,14 +37,12 @@ const { blocks, leafletUrl } = Astro.props;
       );
     case "image":
       return (
-        <img
+        <Image
+          blob={block.blob}
           src={block.src}
           alt={block.alt}
           width={block.width}
           height={block.height}
-          loading="lazy"
-          decoding="async"
-          class="rounded-lg"
         />
       );
     case "list":

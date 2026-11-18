@@ -23,6 +23,8 @@ export type Prepared =
   | { kind: "code"; code: string; lang: string }
   | {
       kind: "image";
+      /** The image file, so it can be checked for animation. */
+      blob: BlobRef;
       src: string;
       alt: string;
       width?: number;
@@ -171,6 +173,7 @@ export function prepareDocument(content: unknown): PreparedDocument {
         if (!block.image) return undefined;
         return {
           kind: "image",
+          blob: block.image,
           src: `/blog/media/${mediaFileName(block.image)}`,
           alt: block.alt ?? "",
           width: block.aspectRatio?.width,

@@ -1,0 +1,79 @@
+---
+import Pause from "../../icons/lucide/pause.svg";
+import Play from "../../icons/lucide/play.svg";
+
+interface Props {
+  src: string;
+  /** The first frame, from `/blog/media/`. */
+  still: string;
+  alt: string;
+  width?: number;
+  height?: number;
+}
+
+const { src, still, alt, width, height } = Astro.props;
+---
+
+{/* Readers who prefer reduced motion get the still frame, even without
+   JavaScript. The button lets anyone pause or play it; the script shows it. */}
+<div data-animated-image class="not-prose my-8">
+  <picture>
+    <source
+      media="(prefers-reduced-motion: reduce)"
+      srcset={still}
+      type="image/webp"
+      width={width}
+      height={height}
+    />
+    <img
+      src={src}
+      alt={alt}
+      width={width}
+      height={height}
+      loading="lazy"
+      decoding="async"
+      class="rounded-lg"
+    />
+  </picture>
+  {/* The 44px-tall tap area overlaps the space below by 12px, so the gap
+     under the label matches the gap under a plain image. */}
+  <button
+    type="button"
+    hidden
+    class="group mt-2 -mb-3 flex w-fit min-h-11 cursor-pointer items-center gap-2 text-sm text-sky transition-colors hover:text-sky-deep"
+  >
+    <Pause aria-hidden="true" class="size-4 group-data-paused:hidden" />
+    <Play aria-hidden="true" class="hidden size-4 group-data-paused:block" />
+    <span data-label>Pause animation</span>
+  </button>
+</div>
+
+<script>
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
+
+  for (const figure of document.querySelectorAll("[data-animated-image]")) {
+    const source = figure.querySelector("source");
+    const button = figure.querySelector("button");
+    const label = button?.querySelector("[data-label]");
+    if (!source || !button || !label) continue;
+
+    // Follows the reduced-motion setting until the reader makes their own choice.
+    let choice: boolean | undefined;
+    const isPaused = () => choice ?? reducedMotion.matches;
+    const update = () => {
+      const paused = isPaused();
+      // While the still frame's <source> matches, the browser shows it.
+      source.media = paused ? "all" : "not all";
+      button.toggleAttribute("data-paused", paused);
+      label.textContent = paused ? "Play animation" : "Pause animation";
+    };
+
+    button.addEventListener("click", () => {
+      choice = !isPaused();
+      update();
+    });
+    reducedMotion.addEventListener("change", update);
+    update();
+    button.hidden = false;
+  }
+</script>
