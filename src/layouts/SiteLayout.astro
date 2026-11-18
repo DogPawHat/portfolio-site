@@ -7,9 +7,14 @@ import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 interface Props {
   title?: string;
   description?: string;
+  canonical?: string;
 }
 
-const { title = SITE_TITLE, description = SITE_DESCRIPTION } = Astro.props;
+const {
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  canonical,
+} = Astro.props;
 
 const background = await getImage({
   src: parkPath,
@@ -21,9 +26,10 @@ const background = await getImage({
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} />
+    <BaseHead title={title} description={description} canonical={canonical} />
+    <slot name="head" />
   </head>
-  <body class="bg-gray-900 text-gray-100">
+  <body class="bg-canopy text-ink">
     <div
       aria-hidden="true"
       class="fixed inset-0 -z-5 bg-cover bg-top"

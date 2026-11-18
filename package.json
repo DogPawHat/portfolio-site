@@ -14,6 +14,7 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^8.1.6",
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.5",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.5",
@@ -25,6 +26,11 @@
     "knip": "^6.45.1",
     "typescript": "^7.0.2",
     "vite-plus": "catalog:"
+  },
+  "knip": {
+    "entry": [
+      "netlify/functions/*.mts"
+    ]
   },
   "packageManager": "pnpm@12.21.0"
 }

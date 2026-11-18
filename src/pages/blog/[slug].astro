@@ -1,0 +1,97 @@
+---
+import Blocks from "../../components/leaflet/Blocks.astro";
+import SocialLinks from "../../components/SocialLinks.astro";
+import { SITE_TITLE } from "../../consts";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { formatDate } from "../../lib/leaflet/format";
+import type { Post } from "../../lib/leaflet/loader";
+import { BLOG } from "../../lib/leaflet/pds";
+import { getPosts } from "../../lib/leaflet/posts";
+import { prepareDocument } from "../../lib/leaflet/prepare";
+
+type Props = { post: Post; redirectTo?: string };
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.flatMap((post) => [
+    { params: { slug: post.id }, props: { post } },
+    // The Leaflet record key works as an address too, and never changes even
+    // if the post is retitled. It forwards to the readable address.
+    {
+      params: { slug: post.data.rkey },
+      props: { post, redirectTo: `/blog/${post.id}/` },
+    },
+  ]);
+}
+
+const { post, redirectTo } = Astro.props;
+if (redirectTo) return Astro.redirect(redirectTo);
+
+const { title, description, publishedAt, tags, leafletUrl } = post.data;
+const { blocks, footnotes } = prepareDocument(post.data.content);
+
+// Lets tools that understand standard.site find the record behind this page.
+const documentUri = `at://${BLOG.did}/site.standard.document/${post.data.rkey}`;
+---
+
+<SiteLayout
+  title={`${title} - ${SITE_TITLE}`}
+  description={description ?? title}
+  canonical={leafletUrl}
+>
+  <link slot="head" rel="site.standard.document" href={documentUri} />
+  <nav class="mb-8 flex max-w-3xl flex-wrap justify-between gap-x-8 gap-y-2">
+    <a
+      href="/blog/"
+      class="text-white text-shadow-md text-shadow-black/60 hover:text-sky-pale transition-colors"
+    >
+      ← All posts
+    </a>
+    <a
+      href={leafletUrl}
+      class="text-white text-shadow-md text-shadow-black/60 hover:text-sky-pale transition-colors"
+    >
+      View on Leaflet →
+    </a>
+  </nav>
+
+  <article class="max-w-3xl rounded-2xl bg-paper px-6 py-10 md:px-12 md:py-14">
+    <header class="mb-10">
+      <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-balance">
+        {title}
+      </h1>
+      {description && <p class="mt-4 text-xl text-ink-soft">{description}</p>}
+      <p class="mt-4 text-sm text-ink-soft">
+        <time datetime={publishedAt.toISOString()}>
+          {formatDate(publishedAt)}
+        </time>
+        {tags.length > 0 && <span> · {tags.join(", ")}</span>}
+      </p>
+    </header>
+
+    <div class="prose prose-lg max-w-none">
+      <Blocks blocks={blocks} leafletUrl={leafletUrl} />
+
+      {footnotes.length > 0 && (
+        <section aria-label="Footnotes" class="mt-12 text-base">
+          <hr />
+          <ol>
+            {footnotes.map((note) => (
+              <li id={`fn-${note.number}`}>
+                <Fragment set:html={note.html} />{" "}
+                <a
+                  href={`#fnref-${note.number}`}
+                  aria-label={`Back to reference ${note.number}`}
+                >
+                  ↩
+                </a>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+    </div>
+  </article>
+
+  <SocialLinks />
+</SiteLayout>

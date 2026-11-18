@@ -1,0 +1,52 @@
+---
+import SocialLinks from "../../components/SocialLinks.astro";
+import { BLOG_DESCRIPTION, SITE_TITLE } from "../../consts";
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { formatDate } from "../../lib/leaflet/format";
+import { getPosts } from "../../lib/leaflet/posts";
+
+const posts = await getPosts();
+---
+
+<SiteLayout title={`Blog - ${SITE_TITLE}`} description={BLOG_DESCRIPTION}>
+  <nav class="mb-8 flex max-w-3xl flex-wrap justify-between gap-x-8 gap-y-2">
+    <a
+      href="/"
+      class="text-white text-shadow-md text-shadow-black/60 hover:text-sky-pale transition-colors"
+    >
+      ← Home
+    </a>
+    <a
+      href="/rss.xml"
+      class="text-white text-shadow-md text-shadow-black/60 hover:text-sky-pale transition-colors"
+    >
+      RSS feed
+    </a>
+  </nav>
+
+  <h1 class="text-5xl md:text-7xl font-normal tracking-tight text-white text-shadow-lg text-shadow-black/50 mb-10">
+    Blog
+  </h1>
+
+  <ul class="max-w-3xl rounded-2xl bg-paper px-6 py-4 md:px-12 md:py-8">
+    {posts.map((post) => (
+      <li class="py-6">
+        <a href={`/blog/${post.id}/`} class="group block">
+          <h2 class="text-2xl font-bold text-ink group-hover:text-sky transition-colors">
+            {post.data.title}
+          </h2>
+          {post.data.description && (
+            <p class="mt-1 text-lg text-ink-soft">{post.data.description}</p>
+          )}
+          <p class="mt-2 text-sm text-ink-soft">
+            <time datetime={post.data.publishedAt.toISOString()}>
+              {formatDate(post.data.publishedAt)}
+            </time>
+          </p>
+        </a>
+      </li>
+    ))}
+  </ul>
+
+  <SocialLinks />
+</SiteLayout>

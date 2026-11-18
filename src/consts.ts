@@ -4,3 +4,5 @@
 export const SITE_TITLE = "Ciarán Curley - Software Engineer";
 export const SITE_DESCRIPTION =
   "Website for Ciarán Curley, a software engineer based in Dublin, Ireland.";
+export const BLOG_DESCRIPTION =
+  "Notes on React, TypeScript and web development by Ciarán Curley.";
