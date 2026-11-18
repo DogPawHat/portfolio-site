@@ -82,6 +82,7 @@ The feel is **calm, open and legible**. Density is low. A single left-aligned co
 The dark slate and indigo supporting palette came with the site's starter template. It is the current UI palette and stays coherent for now, but the photograph is the authority. When the system grows, new color, mood and material should come from the park.
 
 **Key Characteristics:**
+
 - A full-bleed, fixed park photograph behind every page, as the site's single source of atmosphere.
 - White type lifted off the photo by layered black text shadows; no scrims or panels behind short text.
 - One typeface (Atkinson Hyperlegible) in regular and bold only.
@@ -93,12 +94,14 @@ The dark slate and indigo supporting palette came with the site's starter templa
 A quiet cool-slate UI palette with one indigo accent, set against the photograph's saturated greens, tarmac grays and sky blue.
 
 ### Primary
+
 - **Dusk Indigo** (`accent`): The only accent hue. Used for inline links and the hover tint on interactive elements. It reads as dusk sky against the slate.
 - **Deep Indigo** (`accent-dark`): Hover color for inline links.
 - **Indigo Ink** (`accent-deep`): The fill a social chip turns on hover. This is the strongest saturated color the UI uses.
 - **Indigo Haze** (`accent-pale`): Hover tint for the labels under the social chips, which keeps them legible on the photo.
 
 ### Neutral
+
 - **Night Slate** (`bg-primary`): Body background. You only see it while the photo loads or wherever the photo doesn't reach.
 - **Slate Surface** (`bg-secondary`): Opaque fill for the social chips. This is the one surface material.
 - **Slate Border** (`border`): Scrollbar thumb.
@@ -107,6 +110,7 @@ A quiet cool-slate UI palette with one indigo accent, set against the photograph
 - **Open White** (`text-on-photo`): Every piece of type that sits directly on the photograph.
 
 ### Named Rules
+
 **The Park Is the Palette Rule.** The photograph sets the color mood. When a new color is needed (a second accent, a tag color, a highlight), sample it from the park first: grass green, shaded foliage, tarmac charcoal, birch-bark cream, autumn-leaf orange, open sky. Reach for another stock Tailwind hue only after that.
 
 **The One Accent Rule.** Indigo is the only saturated hue in the UI, and it means "interactive". Don't add a second accent without retiring indigo or deriving the new one from the park.
@@ -118,11 +122,13 @@ A quiet cool-slate UI palette with one indigo accent, set against the photograph
 **Character:** One humanist sans that does everything. It was designed for low-vision legibility, so it reads clearly over a busy photo, and it carries a plain, friendly voice instead of a portfolio-template polish. Only regular (400) and bold (700) are loaded, so any intermediate weight renders as one of the two.
 
 ### Hierarchy
+
 - **Display** (400; 6rem on desktop, 3.75rem on mobile; line-height 1; tracking -0.025em): The name on the home page and nothing else. Its weight is regular, not bold, because the size does the work.
 - **Body Lead** (400, 1.25rem, 1.4): The intro paragraph on the photo, capped at about 42rem wide.
 - **Label** (400, 0.875rem, 1.429): Social link labels.
 
 ### Named Rules
+
 **The Two Weights Rule.** Use only 400 and 700. Big type stays regular; bold is for headings that need weight at smaller sizes.
 
 ## Layout
@@ -138,10 +144,12 @@ The spacing rhythm follows Tailwind's 4px scale, using 8 / 12 / 16 / 24 / 32 / 4
 Depth comes from the photograph. The UI stays nearly flat on top of it. The photo is fixed to the viewport, so content scrolls over a still landscape. Type is separated from the image with layered black text shadows instead of panels. There are no box shadows.
 
 ### Shadow Vocabulary
+
 - **Photo Lift, strong** (Tailwind `text-shadow-lg` in black at 50–80%): The display name (50%) and the lead paragraph (80%). Longer text gets the heavier shadow.
 - **Photo Lift, light** (Tailwind `text-shadow-md` in black at 60%): Small labels on the photo.
 
 ### Named Rules
+
 **The Shadow-Lift Rule.** Any text sitting directly on the photograph carries a black text shadow. Text without one never touches the photo.
 
 ## Shapes
@@ -151,7 +159,9 @@ The shapes are soft and simple. Interactive icons sit in perfect circles (`round
 ## Components
 
 ### Social Link Chips (signature)
+
 A row of round slate buttons, each with a small label underneath. This is the site's main call to action.
+
 - **Shape:** A circle, 48px across, holding a 24px Lucide-style stroke icon (or the custom Bluesky mark).
 - **Rest:** A Slate Surface fill with a Mist Gray icon. The label below is Open White in Label type with the light Photo Lift shadow.
 - **Hover:** The fill turns Indigo Ink, the icon turns white and the label tints to Indigo Haze. The colors transition over 150ms with the standard ease.
@@ -159,14 +169,17 @@ A row of round slate buttons, each with a small label underneath. This is the si
 - **Set:** Email, Bluesky, GitHub and LinkedIn, in that order.
 
 ### Links
+
 - **Inline:** Dusk Indigo, darkening to Deep Indigo on hover (set globally on `a`).
 
 ### Navigation
+
 None. There is no persistent header, nav or footer.
 
 ## Do's and Don'ts
 
 ### Do:
+
 - **Do** treat the park photograph as the site's atmosphere: full-bleed, fixed, anchored to the top (`background-position: top`), and served as compressed WebP.
 - **Do** put a black text shadow under every piece of type that sits directly on the photograph (The Shadow-Lift Rule).
 - **Do** move text that runs longer than a short paragraph onto an opaque Slate Surface, so it stays legible over grass and foliage.
@@ -175,6 +188,7 @@ None. There is no persistent header, nav or footer.
 - **Do** keep the home page left-aligned and single-column, with plenty of photograph visible around it.
 
 ### Don't:
+
 - **Don't** cover the photograph with full-page panels, dark overlays or gradients that hide the park.
 - **Don't** add a second accent hue next to indigo (The One Accent Rule).
 - **Don't** use font weights other than 400 and 700; Atkinson has no other weights loaded.
