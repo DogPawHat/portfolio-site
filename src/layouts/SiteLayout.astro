@@ -8,32 +8,49 @@ interface Props {
   title?: string;
   description?: string;
   canonical?: string;
+  /** Set on pages with bold type, so its font is preloaded. */
+  boldFont?: boolean;
 }
 
 const {
   title = SITE_TITLE,
   description = SITE_DESCRIPTION,
   canonical,
+  boldFont,
 } = Astro.props;
 
-const background = await getImage({
-  src: parkPath,
-  format: "webp",
-  quality: 60,
-});
+// The park photo is the largest download on every page. AVIF carries the same
+// detail in about 60% of the bytes; WebP stays as the fallback for browsers
+// without AVIF or `image-set()` type selection.
+const [backgroundAvif, backgroundWebp] = await Promise.all([
+  getImage({ src: parkPath, format: "avif", quality: 50 }),
+  getImage({ src: parkPath, format: "webp", quality: 60 }),
+]);
+
+// Two declarations: browsers that can't parse `image-set()` with `type()`
+// drop the second and keep the plain WebP.
+const backgroundStyle = [
+  `background-image: url(${backgroundWebp.src})`,
+  `background-image: image-set(url(${backgroundAvif.src}) type("image/avif"), url(${backgroundWebp.src}) type("image/webp"))`,
+].join("; ");
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <BaseHead title={title} description={description} canonical={canonical} />
+    <BaseHead
+      title={title}
+      description={description}
+      canonical={canonical}
+      boldFont={boldFont}
+    />
     <slot name="head" />
   </head>
   <body class="bg-canopy text-ink">
     <div
       aria-hidden="true"
       class="fixed inset-0 -z-5 bg-cover bg-top"
-      style={`background-image: url(${background.src})`}
+      style={backgroundStyle}
     ></div>
     <div class="min-h-screen">
       <main class="max-w-6xl mx-auto px-6 py-12 md:px-16 md:py-20">

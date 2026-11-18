@@ -8,7 +8,11 @@ import { getPosts } from "../../lib/leaflet/posts";
 const posts = await getPosts();
 ---
 
-<SiteLayout title={`Blog - ${SITE_TITLE}`} description={BLOG_DESCRIPTION}>
+<SiteLayout
+  title={`Blog - ${SITE_TITLE}`}
+  description={BLOG_DESCRIPTION}
+  boldFont
+>
   <nav class="mb-8 flex max-w-3xl flex-wrap justify-between gap-x-8 gap-y-2">
     <a
       href="/"

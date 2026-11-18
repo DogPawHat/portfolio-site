@@ -38,6 +38,7 @@ const documentUri = `at://${BLOG.did}/site.standard.document/${post.data.rkey}`;
   title={`${title} - ${SITE_TITLE}`}
   description={description ?? title}
   canonical={leafletUrl}
+  boldFont
 >
   <link slot="head" rel="site.standard.document" href={documentUri} />
   <nav class="mb-8 flex max-w-3xl flex-wrap justify-between gap-x-8 gap-y-2">
