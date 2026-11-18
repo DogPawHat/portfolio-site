@@ -205,23 +205,31 @@
       },
       "body": {
         "displayName": "Body",
-        "purpose": "Long-form text on the reading panel."
+        "purpose": "Long-form text on the reading panel, at md and up."
+      },
+      "body-mobile": {
+        "displayName": "Body (mobile)",
+        "purpose": "Long-form text on the reading panel below 768px."
+      },
+      "photo-label": {
+        "displayName": "Photo Label",
+        "purpose": "The labels under the social link chips, on the photograph."
       },
       "label": {
         "displayName": "Label",
-        "purpose": "Social link labels, post dates and tags, and the small lines on link cards."
+        "purpose": "The byline, date and tags under a post title, the dates in the blog index, and the small lines on link cards."
       }
     },
     "shadows": [
       {
         "name": "photo-lift-strong",
         "value": "0px 1px 2px rgb(0 0 0 / 0.5), 0px 3px 2px rgb(0 0 0 / 0.5), 0px 4px 8px rgb(0 0 0 / 0.5)",
-        "purpose": "Text shadow (Tailwind text-shadow-lg, black at 50-80%) under the display name, the blog index title, the lead paragraph and the blog link on the photograph."
+        "purpose": "Text shadow (Tailwind text-shadow-lg, black at 50-80%) under the display name, the blog index title, the lead paragraph, the blog link and the social chip labels on the photograph."
       },
       {
         "name": "photo-lift-light",
         "value": "0px 1px 1px rgb(0 0 0 / 0.6), 0px 1px 2px rgb(0 0 0 / 0.6), 0px 2px 4px rgb(0 0 0 / 0.6)",
-        "purpose": "Text shadow (Tailwind text-shadow-md, black at 60%) under small labels and the links above a panel on the photograph."
+        "purpose": "Text shadow (Tailwind text-shadow-md, black at 60%) under the links above a panel on the photograph."
       }
     ],
     "motion": [
@@ -233,7 +241,7 @@
       {
         "name": "duration-color",
         "value": "150ms",
-        "purpose": "Color changes on social chips, labels, links on the photograph, post titles and link cards."
+        "purpose": "Color changes on social chips, labels, links on the photograph, post titles, link cards and the pause button under animated images."
       }
     ],
     "breakpoints": [
@@ -254,7 +262,7 @@
       "refersTo": "social-chip",
       "description": "Round paper icon button with a shadowed label beneath; the site's main contact call to action. Shown on a stand-in for the park photo.",
       "html": "<div class=\"ds-photo-standin\"><a class=\"ds-social\" href=\"#\" aria-label=\"Email\"><span class=\"ds-social-chip\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect width=\"20\" height=\"16\" x=\"2\" y=\"4\" rx=\"2\"></rect><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"></path></svg></span><span class=\"ds-social-label\">Email</span></a></div>",
-      "css": ".ds-photo-standin { padding: 32px; background: linear-gradient(180deg, #4a8fd8 0%, #3d6b2a 45%, #4fa22a 100%); font-family: Atkinson, sans-serif; } .ds-social { display: inline-flex; flex-direction: column; align-items: center; color: #ffffff; text-decoration: none; } .ds-social-chip { display: flex; padding: 12px; border-radius: 9999px; background: var(--color-paper, #f5f4e9); color: var(--color-ink, #1e2414); transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-social-chip svg { width: 24px; height: 24px; } .ds-social-label { margin-top: 8px; font-size: 0.875rem; line-height: 1.25rem; color: #ffffff; text-shadow: 0px 1px 1px rgb(0 0 0 / 0.6), 0px 1px 2px rgb(0 0 0 / 0.6), 0px 2px 4px rgb(0 0 0 / 0.6); transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-social:hover .ds-social-chip { background: var(--color-sky, #005c9b); color: var(--color-paper-bright, #fdfcf7); } .ds-social:hover .ds-social-label { color: var(--color-sky-pale, #b8e5ff); } .ds-social:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; }"
+      "css": ".ds-photo-standin { padding: 32px; background: linear-gradient(180deg, #4a8fd8 0%, #3d6b2a 45%, #4fa22a 100%); font-family: Atkinson, sans-serif; } .ds-social { display: inline-flex; flex-direction: column; align-items: center; color: #ffffff; text-decoration: none; } .ds-social-chip { display: flex; padding: 12px; border-radius: 9999px; background: var(--color-paper, #f5f4e9); color: var(--color-ink, #1e2414); transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-social-chip svg { width: 24px; height: 24px; } .ds-social-label { margin-top: 8px; font-size: 1rem; line-height: 1.5rem; color: #ffffff; text-shadow: 0px 1px 2px rgb(0 0 0 / 0.8), 0px 3px 2px rgb(0 0 0 / 0.8), 0px 4px 8px rgb(0 0 0 / 0.8); transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-social:hover .ds-social-chip { background: var(--color-sky, #005c9b); color: var(--color-paper-bright, #fdfcf7); } .ds-social:hover .ds-social-label { color: var(--color-sky-pale, #b8e5ff); } .ds-social:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; }"
     },
     {
       "name": "Photo Hero",
@@ -276,9 +284,9 @@
       "name": "Reading Panel",
       "kind": "card",
       "refersTo": "reading-panel",
-      "description": "The opaque paper surface for long-form text: post title, description and date, then prose with an inline link and an inline code chip.",
-      "html": "<article class=\"ds-panel\"><h1 class=\"ds-post-title\">Post title</h1><p class=\"ds-post-desc\">A one-line description of the post.</p><p class=\"ds-post-meta\">18 November 2026 · react, typescript</p><p class=\"ds-prose\">Long-form text sits on paper in Shade Ink, with <a class=\"ds-prose-link\" href=\"#\">links in Open Sky</a> and <code class=\"ds-inline-code\">inline code</code> in a quiet chip.</p></article>",
-      "css": ".ds-panel { max-width: 48rem; padding: 40px 24px; border-radius: 16px; background: var(--color-paper, #f5f4e9); color: var(--color-ink, #1e2414); font-family: Atkinson, sans-serif; } .ds-post-title { margin: 0; font-size: 2.25rem; line-height: 2.5rem; font-weight: 700; letter-spacing: -0.025em; text-wrap: balance; } .ds-post-desc { margin: 16px 0 0; font-size: 1.25rem; line-height: 1.75rem; color: var(--color-ink-soft, #535843); } .ds-post-meta { margin: 16px 0 40px; font-size: 0.875rem; line-height: 1.25rem; color: var(--color-ink-soft, #535843); } .ds-prose { margin: 0; font-size: 1.125rem; line-height: 1.778; } .ds-prose-link { color: var(--color-sky, #005c9b); text-decoration: underline; } .ds-prose-link:hover { color: var(--color-sky-deep, #004077); } .ds-prose-link:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; } .ds-inline-code { padding: 0.15em 0.35em; border-radius: 0.3em; background: var(--color-paper-sunk, #e9e7d8); font-size: 0.875em; font-weight: 400; }"
+      "description": "The opaque paper surface for long-form text: post title, description, then a meta line with the byline (Ciarán Curley, linking home), date and tags, then prose with an inline link and an inline code chip.",
+      "html": "<article class=\"ds-panel\"><h1 class=\"ds-post-title\">Post title</h1><p class=\"ds-post-desc\">A one-line description of the post.</p><p class=\"ds-post-meta\">By <a class=\"ds-post-byline\" href=\"#\" rel=\"author\">Ciarán Curley</a> · 18 November 2026 · react, typescript</p><p class=\"ds-prose\">Long-form text sits on paper in Shade Ink, with <a class=\"ds-prose-link\" href=\"#\">links in Open Sky</a> and <code class=\"ds-inline-code\">inline code</code> in a quiet chip.</p></article>",
+      "css": ".ds-panel { max-width: 48rem; padding: 40px 20px; border-radius: 16px; background: var(--color-paper, #f5f4e9); color: var(--color-ink, #1e2414); font-family: Atkinson, sans-serif; } .ds-post-title { margin: 0; font-size: 2.25rem; line-height: 2.5rem; font-weight: 700; letter-spacing: -0.025em; text-wrap: balance; } .ds-post-desc { margin: 16px 0 0; font-size: 1.25rem; line-height: 1.75rem; color: var(--color-ink-soft, #535843); } .ds-post-meta { margin: 16px 0 40px; font-size: 0.875rem; line-height: 1.25rem; color: var(--color-ink-soft, #535843); } .ds-post-byline { position: relative; white-space: nowrap; color: var(--color-sky, #005c9b); text-decoration: underline; text-underline-offset: 2px; transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-post-byline::after { content: \"\"; position: absolute; top: 50%; left: 0; width: 100%; height: max(100%, 2.75rem); translate: 0 -50%; } .ds-post-byline:hover { color: var(--color-sky-deep, #004077); } .ds-post-byline:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; } .ds-prose { margin: 0; font-size: 1.125rem; line-height: 1.778; } .ds-prose-link { color: var(--color-sky, #005c9b); text-decoration: underline; } .ds-prose-link:hover { color: var(--color-sky-deep, #004077); } .ds-prose-link:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; } .ds-inline-code { padding: 0.15em 0.35em; border-radius: 0.3em; background: var(--color-paper-sunk, #e9e7d8); font-size: 0.875em; font-weight: 400; }"
     },
     {
       "name": "Post List Entry",
@@ -286,7 +294,7 @@
       "refersTo": "post-entry-title",
       "description": "One entry in the blog index panel. The whole entry is a link and its title turns Open Sky on hover.",
       "html": "<ul class=\"ds-post-list\"><li><a class=\"ds-entry\" href=\"#\"><h2 class=\"ds-entry-title\">Post title</h2><p class=\"ds-entry-desc\">A one-line description of the post.</p><p class=\"ds-entry-date\">18 November 2026</p></a></li></ul>",
-      "css": ".ds-post-list { max-width: 48rem; margin: 0; padding: 16px 24px; list-style: none; border-radius: 16px; background: var(--color-paper, #f5f4e9); font-family: Atkinson, sans-serif; } .ds-post-list li { padding: 24px 0; } .ds-entry { display: block; color: var(--color-sky, #005c9b); text-decoration: none; } .ds-entry-title { margin: 0; font-size: 1.5rem; line-height: 2rem; font-weight: 700; color: var(--color-ink, #1e2414); transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-entry:hover .ds-entry-title { color: var(--color-sky, #005c9b); } .ds-entry-desc { margin: 4px 0 0; font-size: 1.125rem; line-height: 1.75rem; color: var(--color-ink, #1e2414); } .ds-entry-date { margin: 8px 0 0; font-size: 0.875rem; line-height: 1.25rem; color: var(--color-ink-soft, #535843); } .ds-entry:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; }"
+      "css": ".ds-post-list { max-width: 48rem; margin: 0; padding: 16px 20px; list-style: none; border-radius: 16px; background: var(--color-paper, #f5f4e9); font-family: Atkinson, sans-serif; } .ds-post-list li { padding: 24px 0; } .ds-entry { display: block; color: var(--color-sky, #005c9b); text-decoration: none; } .ds-entry-title { margin: 0; font-size: 1.5rem; line-height: 2rem; font-weight: 700; color: var(--color-ink, #1e2414); text-wrap: balance; transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-entry:hover .ds-entry-title { color: var(--color-sky, #005c9b); } .ds-entry-desc { margin: 4px 0 0; font-size: 1.125rem; line-height: 1.75rem; color: var(--color-ink-soft, #535843); text-wrap: pretty; } .ds-entry-date { margin: 8px 0 0; font-size: 0.875rem; line-height: 1.25rem; color: var(--color-ink-soft, #535843); } .ds-entry:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; }"
     },
     {
       "name": "Link Card",
@@ -294,7 +302,7 @@
       "refersTo": "inset-surface",
       "description": "A Sunk Paper inset inside the reading panel linking to another site; the fill lifts to Bright Paper on hover.",
       "html": "<div class=\"ds-panel\"><a class=\"ds-link-card\" href=\"#\"><span class=\"ds-link-card-title\">Linked page title</span><span class=\"ds-link-card-desc\">A short description of the linked page, clamped to two lines.</span><span class=\"ds-link-card-host\">example.com</span></a></div>",
-      "css": ".ds-panel { max-width: 48rem; padding: 40px 24px; border-radius: 16px; background: var(--color-paper, #f5f4e9); color: var(--color-ink, #1e2414); font-family: Atkinson, sans-serif; } .ds-link-card { display: flex; flex-direction: column; gap: 4px; padding: 16px; overflow: hidden; border-radius: 8px; background: var(--color-paper-sunk, #e9e7d8); color: var(--color-ink, #1e2414); text-decoration: none; transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-link-card:hover { background: var(--color-paper-bright, #fdfcf7); color: var(--color-ink, #1e2414); } .ds-link-card-title { font-weight: 700; } .ds-link-card-desc { font-size: 0.875rem; line-height: 1.25rem; color: var(--color-ink-soft, #535843); } .ds-link-card-host { font-size: 0.875rem; line-height: 1.25rem; color: var(--color-sky, #005c9b); } .ds-link-card:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; }"
+      "css": ".ds-panel { max-width: 48rem; padding: 40px 20px; border-radius: 16px; background: var(--color-paper, #f5f4e9); color: var(--color-ink, #1e2414); font-family: Atkinson, sans-serif; } .ds-link-card { display: flex; flex-direction: column; gap: 4px; padding: 16px; overflow: hidden; border-radius: 8px; background: var(--color-paper-sunk, #e9e7d8); color: var(--color-ink, #1e2414); text-decoration: none; transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1); } .ds-link-card:hover { background: var(--color-paper-bright, #fdfcf7); color: var(--color-ink, #1e2414); } .ds-link-card-title { font-weight: 700; } .ds-link-card-desc { font-size: 0.875rem; line-height: 1.25rem; color: var(--color-ink-soft, #535843); } .ds-link-card-host { font-size: 0.875rem; line-height: 1.25rem; color: var(--color-sky, #005c9b); } .ds-link-card:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; border-radius: 2px; }"
     },
     {
       "name": "Text Link",
@@ -338,7 +346,7 @@
       }
     ],
     "dos": [
-      "Do treat the park photograph as the site's atmosphere: full-bleed, fixed, anchored to the top (`background-position: top`), and served as compressed WebP.",
+      "Do treat the park photograph as the site's atmosphere: full-bleed, fixed, anchored to the top (`background-position: top`), and served as AVIF (quality 50) through `image-set()`, with a WebP (quality 60) fallback declared first for browsers that can't parse it. Keep the full 2000px width: on a portrait phone `cover` scales the photo to the screen height, so savings come from encoding, not dimensions.",
       "Do put a black text shadow under every piece of type that sits directly on the photograph (The Shadow-Lift Rule).",
       "Do move text that runs longer than a short paragraph onto an opaque Birch Paper panel, so it stays legible over grass and foliage.",
       "Do keep to Atkinson Hyperlegible in weights 400 and 700.",

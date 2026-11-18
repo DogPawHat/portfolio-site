@@ -38,47 +38,60 @@ const documentUri = `at://${BLOG.did}/site.standard.document/${post.data.rkey}`;
   title={`${title} - ${SITE_TITLE}`}
   description={description ?? title}
   canonical={leafletUrl}
+  boldFont
 >
   <link slot="head" rel="site.standard.document" href={documentUri} />
   <nav class="mb-8 flex max-w-3xl flex-wrap justify-between gap-x-8 gap-y-2">
     <a
       href="/blog/"
-      class="text-white text-shadow-md text-shadow-black/60 hover:text-sky-pale transition-colors"
+      class="tap-area text-white text-shadow-md text-shadow-black/60 hover:text-sky-pale transition-colors"
     >
       ← All posts
     </a>
     <a
       href={leafletUrl}
-      class="text-white text-shadow-md text-shadow-black/60 hover:text-sky-pale transition-colors"
+      class="tap-area text-white text-shadow-md text-shadow-black/60 hover:text-sky-pale transition-colors"
     >
       View on Leaflet →
     </a>
   </nav>
 
-  <article class="max-w-3xl rounded-2xl bg-paper px-6 py-10 md:px-12 md:py-14">
+  <article class="-mx-3 max-w-3xl rounded-2xl bg-paper px-5 py-10 md:mx-0 md:px-12 md:py-14">
     <header class="mb-10">
       <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-balance">
         {title}
       </h1>
       {description && <p class="mt-4 text-xl text-ink-soft">{description}</p>}
-      <p class="mt-4 text-sm text-ink-soft">
-        <time datetime={publishedAt.toISOString()}>
+      {/* The byline says whose site this is to anyone who lands on a post. */}
+      <p class="mt-4 text-sm text-pretty text-ink-soft">
+        By{" "}
+        <a
+          href="/"
+          rel="author"
+          class="tap-area whitespace-nowrap underline underline-offset-2 transition-colors"
+        >
+          Ciarán Curley
+        </a>
+        {" · "}
+        <time datetime={publishedAt.toISOString()} class="whitespace-nowrap">
           {formatDate(publishedAt)}
         </time>
         {tags.length > 0 && <span> · {tags.join(", ")}</span>}
       </p>
     </header>
 
-    <div class="prose prose-lg max-w-none">
+    <div class="prose md:prose-lg max-w-none">
       <Blocks blocks={blocks} leafletUrl={leafletUrl} />
 
       {footnotes.length > 0 && (
-        <section aria-label="Footnotes" class="mt-12 text-base">
+        <section aria-label="Footnotes" class="mt-12 text-sm md:text-base">
           <hr />
           <ol>
             {footnotes.map((note) => (
               <li id={`fn-${note.number}`}>
-                <Fragment set:html={note.html} />{" "}
+                {/* A no-break space keeps the "↩" on the note's last line. */}
+                <Fragment set:html={note.html} />
+                {"\u00a0"}
                 <a
                   href={`#fnref-${note.number}`}
                   aria-label={`Back to reference ${note.number}`}

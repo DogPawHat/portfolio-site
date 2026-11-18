@@ -33,17 +33,36 @@
 /* Custom font definitions */
 @font-face {
   font-family: "Atkinson";
-  src: url("/fonts/atkinson-regular.woff") format("woff");
+  src: url("/fonts/atkinson-regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "Atkinson";
-  src: url("/fonts/atkinson-bold.woff") format("woff");
+  src: url("/fonts/atkinson-bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
+}
+
+/*
+ * A short line of link text is only 15-28px tall. An invisible box centred on
+ * the link makes its tap area at least 44px tall without moving anything
+ * around it or stretching its focus ring.
+ */
+@utility tap-area {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: max(100%, 2.75rem);
+    translate: 0 -50%;
+  }
 }
 
 @layer base {
@@ -114,6 +133,26 @@
   --tw-prose-pre-bg: var(--color-paper-bright);
   --tw-prose-th-borders: var(--color-tarmac);
   --tw-prose-td-borders: var(--color-paper-sunk);
+
+  /*
+   * Bare URLs and long inline code would otherwise push the page sideways
+   * on a phone. Break them anywhere rather than let them overflow.
+   */
+  overflow-wrap: anywhere;
+}
+
+/* In a phone-width column, avoid one-word last lines and lopsided headings. */
+.prose :is(p, li) {
+  text-wrap: pretty;
+}
+
+.prose :is(h2, h3, h4) {
+  text-wrap: balance;
+}
+
+/* Code blocks keep their lines intact and scroll inside their own box. */
+.prose pre {
+  overflow-wrap: normal;
 }
 
 .prose a:hover {
@@ -142,6 +181,31 @@
 /* Footnote markers in headings shouldn't shout at heading size. */
 .prose :is(h2, h3, h4) sup {
   font-size: 0.5em;
+}
+
+/*
+ * Footnote markers and their back-links are only a few pixels wide, too small
+ * to hit with a thumb. An invisible box centred on each one widens the tap
+ * area to 32px square without moving the text around it.
+ */
+.prose :is(sup a[href^="#fn-"], a[href^="#fnref-"]) {
+  position: relative;
+}
+
+.prose :is(sup a[href^="#fn-"], a[href^="#fnref-"])::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, 2rem);
+  height: max(100%, 2rem);
+  translate: -50% -50%;
+}
+
+/* Where a widened footnote target overlaps a neighbouring link, the link wins. */
+.prose a:not([href^="#fn-"], [href^="#fnref-"]) {
+  position: relative;
+  z-index: 1;
 }
 
 /*
